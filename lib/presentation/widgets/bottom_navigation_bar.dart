@@ -65,7 +65,10 @@ class _BottomNavigationState extends State<BottomNavigation> {
           selectedItemColor: Colors.green,
           unselectedItemColor: Colors.black,
           onTap: _onItemTapped,
+<<<<<<< HEAD
         
+=======
+>>>>>>> 2b0ece1 (first)
         ),
       ),
     );
