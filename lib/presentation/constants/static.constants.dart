@@ -38,6 +38,8 @@ class Constants {
   static const String searchBar="Search";
    static const String jo="Search";
      static const String joj="Search";
+      static const String joji="Search";
   
 }
+
               
