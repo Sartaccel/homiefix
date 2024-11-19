@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:homiefix_application/presentation/widgets/bottom_navigation_bar.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,7 +14,10 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+     home: BottomNavigation(),
+    );
   }
 }
 
