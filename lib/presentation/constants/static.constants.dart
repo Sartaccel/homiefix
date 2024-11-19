@@ -39,7 +39,8 @@ class Constants {
    static const String jo="Search";
      static const String joj="Search";
       static const String joji="Search";
-  
+      
+  static const String jojis="Search";
 }
 
               
