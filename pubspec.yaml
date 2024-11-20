@@ -38,6 +38,7 @@ dependencies:
   cupertino_icons: ^1.0.8
   flutter_svg: ^2.0.14
   google_maps_flutter: ^2.2.3
+  location: ^7.0.1
 
 dev_dependencies:
   flutter_test:

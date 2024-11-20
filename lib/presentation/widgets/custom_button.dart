@@ -299,29 +299,145 @@ class OtpPageButton extends StatelessWidget {
   }
 }
 
-class MapSearchBox extends StatelessWidget {
-  final TextEditingController searchController;
+// class MapSearchBox extends StatelessWidget {
+//   final TextEditingController searchController;
 
-  const MapSearchBox({Key? key, required this.searchController}) : super(key: key);
+//   const MapSearchBox({Key? key, required this.searchController}) : super(key: key);
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Padding(
+//       padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+//       child: TextField(
+//         controller: searchController,
+//         decoration: InputDecoration(
+//           hintText: 'Search',
+//           hintStyle: TextStyle(color: Colors.black, fontSize: 14, fontWeight: FontWeight.w400),
+//           prefixIcon: Icon(Icons.search, color: Colors.black),
+//           filled: true,
+//           fillColor: Colors.white,
+//           border: OutlineInputBorder(
+//             borderRadius: BorderRadius.circular(10.0),
+//             borderSide: BorderSide.none,
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }
+
+class MapSearchTextField extends StatelessWidget {
+  final TextEditingController searchController;
+  final String hintText;
+
+  const MapSearchTextField({
+    Key? key,
+    required this.searchController,
+    required this.hintText,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.white.withOpacity(0.8),
+        borderRadius: BorderRadius.circular(10),
+        boxShadow: [
+          BoxShadow(
+            color: Color(0xffD9D9D9),
+            blurRadius: 5,
+            offset: Offset(0, 3),
+          ),
+        ],
+      ),
       child: TextField(
         controller: searchController,
         decoration: InputDecoration(
-          hintText: 'Search',
-          hintStyle: TextStyle(color: Colors.black, fontSize: 14, fontWeight: FontWeight.w400),
-          prefixIcon: Icon(Icons.search, color: Colors.black),
-          filled: true,
-          fillColor: Colors.white,
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10.0),
-            borderSide: BorderSide.none,
-          ),
+          hintText: hintText,
+          hintStyle: const TextStyle(color: Colors.black),
+          border: InputBorder.none,
+          contentPadding:
+              const EdgeInsets.symmetric(horizontal: 15, vertical: 13),
+          prefixIcon: const Icon(Icons.search, color: Colors.black),
         ),
       ),
     );
   }
 }
+
+class CurrentLocationButton extends StatelessWidget {
+  final VoidCallback onPressed;
+
+  const CurrentLocationButton({Key? key, required this.onPressed}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onPressed,
+      child: Container(
+        padding: EdgeInsets.symmetric(horizontal: 13, vertical: 7),
+        decoration: BoxDecoration(
+          color: Colors.white, // Background color
+          borderRadius: BorderRadius.circular(7), // Rounded corners
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black26,
+              blurRadius: 5,
+              offset: Offset(0, 3), // Subtle shadow effect
+            ),
+          ],
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(
+              Icons.my_location,
+              color: Colors.black,
+            ),
+            SizedBox(width: 8), // Space between the icon and text
+            Text(
+              Constants.mapCurrentLocationLabel,
+              style: TextStyle(
+                color: Colors.black,
+                fontWeight: FontWeight.w500,
+                fontSize: 14,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+
+class MapPageButton extends StatelessWidget {
+  final VoidCallback onPressed;
+
+  const MapPageButton({Key? key, required this.onPressed}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+
+    return ElevatedButton(
+      onPressed: onPressed,
+      child: const Text(
+        Constants.mapButtonLabel,
+        style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600, fontSize: 14),
+      ),
+      style: ElevatedButton.styleFrom(
+        padding: EdgeInsets.symmetric(
+          horizontal: screenWidth * 0.35, // Dynamic padding
+          vertical: 12.0,
+        ),
+        textStyle: const TextStyle(fontSize: 18.0),
+        backgroundColor: Color(0xff009980),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(8.0),
+        ),
+      ),
+    );
+  }
+}
+
