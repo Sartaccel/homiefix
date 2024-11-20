@@ -36,8 +36,11 @@ class Constants {
   static const String cartNavi="Cart";
   static const String profileNavi = "Profile";
   static const String searchBar="Search";
-   static const String jo="Search";
-     static const String joj="Search";
+  static const String jo="Search";
+  static const String joj="Search";
+
   
+
 }
+
               
