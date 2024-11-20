@@ -41,6 +41,8 @@ class Constants {
   static const String joji="Search";
       
   static const String jojis="Search";
+  
+  static const String mithun="Get offered coupons when your friend completes their first booking.";
 }
 
               
