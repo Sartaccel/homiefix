@@ -20,6 +20,11 @@ class Constants {
   static const String otpErrorMessage="Please enter the OTP";
   static const String otpIncorrectMessage="Incorrect OTP";
   static const String otpButtonLabel="Continue";
+  static const String mapTextfieldLabel="Search";
+  static const String mapCurrentLocationLabel="Current Location";
+  static const String mapText1="Your service location";
+  static const String mapText2="5957+GH9, Main Road, Santhapuram, Tamil Nadu 629201";
+  static const String mapButtonLabel="Continue";
   static const String profilename="Hi, Guest";
   static const String location="Location";
   static const String myOrderTitle="My Order";

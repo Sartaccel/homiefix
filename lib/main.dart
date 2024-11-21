@@ -30,6 +30,7 @@ class MyApp extends StatefulWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
+      debugShowCheckedModeBanner: false,
       home: SignIn(),
     );
   }
