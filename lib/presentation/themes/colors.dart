@@ -20,6 +20,7 @@ static const Color LogoutButtonStrokeColor = Color(0xFF636363);
 //BottomNavbar Icon Colours
 static const Color BottomNavbarIconUnselected = Color(0xFF191919);
 static const Color BottomNavbarIconSelected = Color(0xFF009980);
+static const Color bottombackground=Color(0xFFFCFCFC);
 
 
   @override
