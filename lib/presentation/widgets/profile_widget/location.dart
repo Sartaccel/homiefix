@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:homiefix_application/presentation/themes/colors.dart';
 
 class Location extends StatelessWidget {
   final String location;
@@ -7,12 +9,17 @@ class Location extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+
     return Text(
-      location,
-      style: TextStyle(
-        fontSize: 16,
-        color: Colors.grey,
+      location, 
+      style: GoogleFonts.figtree(
+        fontSize: screenWidth * 0.04, 
+        fontWeight: FontWeight.w400,
+        color: AppColors.location,
       ),
+      overflow: TextOverflow.ellipsis,  
+      maxLines: 1,  
     );
   }
 }

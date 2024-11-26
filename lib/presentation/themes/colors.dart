@@ -33,6 +33,8 @@ static const Color arrow_forward_ios=Color(0xFFAFAFAF);
 static const Color head =Color(0xFF2F2F2F);
 static const Color info =Color(0xFF858585);
 static const Color devider=Color.fromRGBO(0, 0, 0, 0.03);
+static const Color location=Color(0xFF636363);
+static const Color username=Color(0xFF000000);
 
 
 

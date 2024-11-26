@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:homiefix_application/presentation/themes/colors.dart';
 
 class Name extends StatelessWidget {
   final String name;
@@ -7,11 +9,14 @@ class Name extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+
     return Text(
       name,
-      style: TextStyle(
-        fontSize: 18,
-        fontWeight: FontWeight.bold,
+      style: GoogleFonts.figtree(
+        fontSize: screenWidth * 0.045, 
+        fontWeight: FontWeight.w500,
+        color: AppColors.username,
       ),
     );
   }

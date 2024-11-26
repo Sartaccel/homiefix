@@ -29,8 +29,8 @@ class Constants {
   static const String location="Location";
   static const String myOrderTitle="My Order";
   static const String myOrderinfo="History, Pending, Complete ordered";
-  static const String manageAddressTitle = "Manage Address";
-  static const String manageAddressInfo="View address, Edit address";
+  static const String manageAddressTitle = " Manage Address";
+  static const String manageAddressInfo=" View address, Edit address";
   static const String couponsAvailableTittle="Coupons Available";
   static const String couponsAvailableInfo="Credits remaining, Total Credit earned";
   static const String contactUsTitle ="Contact Us ";
@@ -39,7 +39,7 @@ class Constants {
   static const String settingstitleinfo="Notification, Language, Delete my account";
   static const String termsandConditionsTitle="Terms and Conditions";
   static const String termsandConditionsinfo="Privacy policy";
-  static const String referHead="Refer & Earned";
+  static const String referHead="Refer & Earn";
   static const String referinfo = "Get offered coupons when your\nfriend completes their first booking.";
 
   static const String invite="Invite friends now";
@@ -47,6 +47,7 @@ class Constants {
   static const String cartNavi="Cart";
   static const String profileNavi = "Profile";
   static const String searchBar="Search";
+  static const String SignInButtontext="Sign in";
 }
 
               

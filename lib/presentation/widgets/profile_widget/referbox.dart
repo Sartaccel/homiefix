@@ -11,7 +11,10 @@ class Referbox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
-    final boxWidth = screenWidth * 0.8; // Adjust the width to 90% of screen width
+    final screenHeight = MediaQuery.of(context).size.height;
+    final boxWidth = screenWidth * 0.83; 
+    final boxHeight = screenHeight * 0.15;
+    final paddingValue = screenWidth * 0.03; 
 
     return Card(
       color: AppColors.boxbackround,
@@ -25,8 +28,8 @@ class Referbox extends StatelessWidget {
             children: [
               Container(
                 width: boxWidth,
-                height: 132, // Height remains fixed
-                padding: const EdgeInsets.all(16.0),
+                height: boxHeight, 
+                padding: EdgeInsets.all(paddingValue), 
                 child: Stack(
                   children: [
                     Column(
@@ -35,25 +38,25 @@ class Referbox extends StatelessWidget {
                         Text(
                           Constants.referHead,
                           style: GoogleFonts.figtree(
-                            fontSize: 14,
+                            fontSize: screenWidth * 0.035, 
                             fontWeight: FontWeight.w700,
                             color: AppColors.refertext,
                           ),
                           textAlign: TextAlign.left,
                         ),
-                        SizedBox(height: 8),
+                        SizedBox(height: screenHeight * 0.01),  
                         Text(
                           Constants.referinfo,
                           style: GoogleFonts.figtree(
-                            fontSize: 14,
+                            fontSize: screenWidth * 0.035, 
                             fontWeight: FontWeight.w400,
                             color: AppColors.refertextinfo,
                           ),
                         ),
-                        SizedBox(height: 5),
+                        SizedBox(height: screenHeight * 0.005),  
                         Container(
-                          height: 24,
-                          width: boxWidth * 0.35, // Adjust the width based on container width
+                          height: boxHeight * 0.18, 
+                          width: boxWidth * 0.35, 
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.all(Radius.circular(4)),
                             border: Border.all(color: AppColors.invitebox),
@@ -62,7 +65,7 @@ class Referbox extends StatelessWidget {
                             child: Text(
                               Constants.invite,
                               style: GoogleFonts.figtree(
-                                fontSize: 12,
+                                fontSize: screenWidth * 0.03, 
                                 fontWeight: FontWeight.w400,
                                 color: AppColors.invitebox,
                               ),
@@ -72,12 +75,12 @@ class Referbox extends StatelessWidget {
                       ],
                     ),
                     Positioned(
-                      right: screenWidth * 0.00,  // Adjust positioning based on screen width
-                      top: screenWidth * 0.05,
+                      right: screenWidth * 0.02, 
+                      top: boxHeight * 0.17,
                       child: SvgPicture.asset(
                         Appimage.inviteimage,
-                        width: screenWidth * 0.14,  // Adjust width based on screen width
-                        height: screenWidth * 0.14,  // Adjust height based on screen width
+                        width: boxHeight * 0.5,
+                        height: boxHeight * 0.5, 
                       ),
                     ),
                   ],

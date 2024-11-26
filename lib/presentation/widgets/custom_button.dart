@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:homiefix_application/presentation/constants/static.constants.dart';
 import 'package:homiefix_application/presentation/screens/login_screen.dart';
 import 'package:homiefix_application/presentation/themes/colors.dart';
@@ -452,26 +453,33 @@ class SignInbutton extends StatefulWidget {
   State<SignInbutton> createState() => _SignInButtonState();
 }
 
+
+
 class _SignInButtonState extends State<SignInbutton> {
   @override
   Widget build(BuildContext context) {
-
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
 
-  
     final buttonWidth = screenWidth * 0.9; 
     final buttonHeight = screenHeight * 0.06;
 
     return Center(
       child: MaterialButton(
+        child: Text(
+          Constants.SignInButtontext,
+          style: GoogleFonts.figtree(
+            fontSize: screenWidth * 0.04, // Responsive font size
+            fontWeight: FontWeight.w600
+          ),
+        ),
         onPressed: () {
 
         },
         color: AppColors.ButtonColour,
         textColor: AppColors.ButtonTextColor,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10), 
+          borderRadius: BorderRadius.circular(screenWidth * 0.025), // Responsive border radius
         ),
         minWidth: buttonWidth,
         height: buttonHeight,

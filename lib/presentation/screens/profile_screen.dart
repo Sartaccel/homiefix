@@ -20,82 +20,97 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
-    final paddingValue = screenSize.width * 0.07;
+    final paddingValue = screenSize.width * 0.06;
 
     return SafeArea(
       child: Scaffold(
         backgroundColor: AppColors.backgroundColor,
         body: SingleChildScrollView(
           child: Padding(
-            padding: EdgeInsets.all(paddingValue),  
+            padding: EdgeInsets.all(paddingValue),
             child: Column(
               children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    ProfilePic(
-                      width: screenSize.width * 0.2,  // Adjust width based on screen width
-                      height: screenSize.width * 0.2,  // Adjust height based on screen width
+                    Container(
+                      padding: EdgeInsets.all(screenSize.width * 0.05),
+                      child: ProfilePic(
+                        width: screenSize.width * 0.2,
+                        height: screenSize.width * 0.2,
+                      ),
                     ),
-                    SizedBox(width: screenSize.width * 0.04),
+                    
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
+                      children: const [
                         Name(name: Constants.profilename),
                         Location(location: Constants.location),
                       ],
                     ),
                   ],
                 ),
-                SizedBox(height: screenSize.width * 0.025),
                 Divider(
                   color: AppColors.devider,
                   thickness: 1,
-                ), 
+                ),
                 SizedBox(height: screenSize.width * 0.025),
 
-                // Profile Options
+                
                 ProfileOption(
-                  image: AppIcons.documentfilled,  
+                  image: AppIcons.calender,
                   title: Constants.myOrderTitle,
-                  subtitle: Constants.myOrderinfo,  
+                  subtitle: Constants.myOrderinfo,
                   onTap: () {
-                    // Navigate to My Orders screen
+                    
                   },
                 ),
+                SizedBox(height: screenSize.width * 0.020),
                 ProfileOption(
-                  image: AppIcons.location,  
+                  image: AppIcons.location,
                   title: Constants.manageAddressTitle,
                   subtitle: Constants.manageAddressInfo,
                   onTap: () {
-                    // Navigate to Manage Address screen
+                    
                   },
                 ),
+                SizedBox(height: screenSize.width * 0.020),
                 ProfileOption(
-                  image: AppIcons.coupon,  
+                  image: AppIcons.coupon,
                   title: Constants.couponsAvailableTittle,
                   subtitle: Constants.couponsAvailableInfo,
                   onTap: () {
-                    // Navigate to Coupons Available screen
+                    
                   },
                 ),
+                SizedBox(height: screenSize.width * 0.020),
                 ProfileOption(
-                  image: AppIcons.settings,  
+                  image: AppIcons.contact,
+                  title: Constants.contactUsTitle,
+                  subtitle: Constants.contactUsinfo,
+                  onTap: () {
+                   
+                  },
+                ),
+                SizedBox(height: screenSize.width * 0.020),
+                ProfileOption(
+                  image: AppIcons.settings,
                   title: Constants.settingstitle,
                   subtitle: Constants.settingstitleinfo,
                   onTap: () {
-                    // Navigate to Settings screen
+                   
                   },
                 ),
                 ProfileOption(
-                  image: AppIcons.documentfilled,  
+                  image: AppIcons.documentfilled,
                   title: Constants.termsandConditionsTitle,
                   subtitle: Constants.termsandConditionsinfo,
                   onTap: () {
-                    // Navigate to Terms and Conditions screen
+                    
                   },
                 ),
+                SizedBox(height: screenSize.width * 0.05),
                 Referbox(),
                 SizedBox(height: screenSize.width * 0.05),
                 SignInbutton(),

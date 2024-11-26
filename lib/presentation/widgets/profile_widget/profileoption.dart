@@ -21,24 +21,37 @@ class ProfileOption extends StatelessWidget {
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     return ListTile(
-      leading: SvgPicture.asset(image, width: screenWidth * 0.05, height: screenWidth * 0.05),
+      leading: Padding(
+        padding: EdgeInsets.only(right: screenWidth * 0.03),  
+        child: SvgPicture.asset(image, width: screenWidth * 0.05, height: screenWidth * 0.05),
+      ),
       title: Text(
         title,
         style: GoogleFonts.figtree(
           fontSize: screenWidth * 0.04,  
-          color: AppColors.head
+          color: AppColors.head,
         ),
       ),
       subtitle: Text(
         subtitle,
         style: GoogleFonts.figtree(
           fontSize: screenWidth * 0.035,  
-          color: AppColors.info
+          color: AppColors.info,
         ),
+        overflow: TextOverflow.ellipsis,
+        maxLines: 1,
       ),
-      trailing: Transform.scale(
-        scale: 0.50, 
-        child: Icon(Icons.arrow_forward_ios, color: AppColors.arrow_forward_ios, size: screenWidth * 0.06),  // Adjust icon size based on screen width
+      trailing: Container(
+        width: screenWidth * 0.08,  
+        alignment: Alignment.centerRight, 
+        child: Transform.scale(
+          scale: 0.7, 
+          child: Icon(
+            Icons.arrow_forward_ios,
+            color: AppColors.arrow_forward_ios,
+            size: screenWidth * 0.05,  
+          ),
+        ),
       ),
       onTap: onTap,
     );

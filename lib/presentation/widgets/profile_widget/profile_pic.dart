@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:homiefix_application/presentation/constants/image.dart';
 import 'package:homiefix_application/presentation/themes/colors.dart';
 import 'package:homiefix_application/presentation/themes/size.dart';
 
@@ -19,30 +21,42 @@ class ProfilePic extends StatelessWidget {
     this.fit = BoxFit.cover,
     this.imageUrl,
     this.isNetworkImage = false,
-    this.fallbackAsset = 'assets/images/DSC_0042.svg', 
+    this.fallbackAsset = Appimage.profile,
   });
 
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
-    final profileSize = screenWidth * 0.15; // Adjust the size based on screen width
+    final profileSize = screenWidth * 0.15;
 
     return Container(
       width: profileSize,
       height: profileSize,
       decoration: BoxDecoration(
-        shape: BoxShape.circle, 
-        color: backgroundColor, 
+        shape: BoxShape.circle,
+        color: backgroundColor,
       ),
-      child: Center(
+      child: ClipOval(
         child: imageUrl != null
-            ? Image(
-                fit: fit,
-                image: isNetworkImage
-                    ? NetworkImage(imageUrl!)
-                    : AssetImage(imageUrl!) as ImageProvider,
+            ? Center(
+                child: Image(
+                  fit: fit,
+                  image: isNetworkImage
+                      ? NetworkImage(imageUrl!)
+                      : AssetImage(imageUrl!) as ImageProvider,
+                  width: profileSize * 0.8,
+                  height: profileSize * 0.8,
+                ),
               )
-            : Icon(Icons.person, size: profileSize / 2,),
+            : Align(
+                alignment: Alignment.bottomCenter,
+                child: SvgPicture.asset(
+                  fallbackAsset,
+                  width: profileSize * 0.8,
+                  height: profileSize * 0.8,
+                  fit: BoxFit.contain,
+                ),
+              ),
       ),
     );
   }
