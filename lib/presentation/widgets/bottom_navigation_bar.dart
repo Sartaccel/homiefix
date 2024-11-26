@@ -4,10 +4,13 @@ import 'package:homiefix_application/presentation/blocs/bottomnav/navigation.dar
 import 'package:homiefix_application/presentation/constants/icons.dart';
 import 'package:homiefix_application/presentation/constants/static.constants.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:homiefix_application/presentation/screens/profile_screen.dart';
 import 'package:homiefix_application/presentation/themes/colors.dart';
 
 class BottomNavigation extends StatelessWidget {
-  const BottomNavigation({super.key});
+  BottomNavigation({super.key});
+
+  final PageController _pageController = PageController();
 
   BottomNavigationBarItem _buildBottomNavigationBarItem({
     required String icon,
@@ -29,17 +32,16 @@ class BottomNavigation extends StatelessWidget {
         builder: (context, selectedIndex) {
           return Scaffold(
             body: PageView(
-              controller: PageController(initialPage: selectedIndex),
+              controller: _pageController,
               onPageChanged: (index) =>
                   context.read<NavigationCubit>().selectPage(index),
               children: const <Widget>[
                 Center(child: Text('Home')),
                 Center(child: Text('Search')),
-                Center(child: Text('Profile')),
+                ProfileScreen()
               ],
             ),
             bottomNavigationBar: Theme(
-              // Apply the custom theme to just the BottomNavigationBar in this widget
               data: Theme.of(context).copyWith(
                 bottomNavigationBarTheme: BottomNavigationBarThemeData(
                   selectedItemColor: AppColors.BottomNavbarIconSelected,
@@ -50,8 +52,10 @@ class BottomNavigation extends StatelessWidget {
               ),
               child: BottomNavigationBar(
                 currentIndex: selectedIndex,
-                onTap: (index) =>
-                    context.read<NavigationCubit>().selectPage(index),
+                onTap: (index) {
+                  context.read<NavigationCubit>().selectPage(index);
+                  _pageController.jumpToPage(index);
+                },
                 items: [
                   _buildBottomNavigationBarItem(
                     icon: AppIcons.home,

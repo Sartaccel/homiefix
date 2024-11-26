@@ -36,10 +36,12 @@ class Constants {
   static const String contactUsTitle ="Contact Us ";
   static const String contactUsinfo="Social media, Customer care";
   static const String settingstitle="Settings";
+  static const String settingstitleinfo="Notification, Language, Delete my account";
   static const String termsandConditionsTitle="Terms and Conditions";
   static const String termsandConditionsinfo="Privacy policy";
   static const String referHead="Refer & Earned";
-  static const String referinfo="Get offered coupons when your friend completes their first booking.";
+  static const String referinfo = "Get offered coupons when your\nfriend completes their first booking.";
+
   static const String invite="Invite friends now";
   static const String homeNavi="Home";
   static const String cartNavi="Cart";
