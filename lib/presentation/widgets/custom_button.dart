@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:homiefix_application/presentation/constants/static.constants.dart';
 import 'package:homiefix_application/presentation/screens/login_screen.dart';
+import 'package:homiefix_application/presentation/themes/fonts.dart';
 
 class SkipButton extends StatelessWidget {
   final VoidCallback onPressed;
@@ -17,7 +18,7 @@ class SkipButton extends StatelessWidget {
         Constants.skipButtonText,
         style: TextStyle(
           fontSize: 16,
-          fontFamily: 'Inter',
+          fontFamily: AppFonts.font,
           fontWeight: FontWeight.w400,
           color: Colors.black,
         ),
@@ -60,9 +61,10 @@ class SignInTextField extends StatelessWidget {
               decoration: InputDecoration(
                 hintText: Constants.mobileNumberCountryCodeLabel,
                 hintStyle: TextStyle(
+                  color: Colors.black,
                   fontSize: 14,
                   fontWeight: FontWeight.w400,
-                  fontFamily: 'Inter',
+                  fontFamily: AppFonts.font,
                 ),
                 border: InputBorder.none,
                 contentPadding: EdgeInsets.symmetric(vertical: 13),
@@ -88,9 +90,10 @@ class SignInTextField extends StatelessWidget {
               decoration: InputDecoration(
                 hintText: Constants.mobileNumberFieldLabel,
                 hintStyle: TextStyle(
+                  color: Color(0xff999999),
                   fontSize: 14,
                   fontWeight: FontWeight.w400,
-                  fontFamily: 'Inter',
+                  fontFamily: AppFonts.font,
                 ),
                 counterText: '',
                 border: InputBorder.none,
@@ -152,7 +155,7 @@ class TermsAndPrivacyText extends StatelessWidget {
             text: Constants.agreeText,
             style: const TextStyle(
               fontSize: 15,
-              fontFamily: 'Inter',
+              fontFamily: AppFonts.font,
               color: Color(0xff545454),
               fontWeight: FontWeight.w400,
             ),
@@ -161,7 +164,7 @@ class TermsAndPrivacyText extends StatelessWidget {
                 text: Constants.termsOfUse,
                 style: const TextStyle(
                   fontSize: 15,
-                  fontFamily: 'Inter',
+                  fontFamily: AppFonts.font,
                   color: Color(0xff009980),
                   fontWeight: FontWeight.w500,
                 ),
@@ -174,7 +177,7 @@ class TermsAndPrivacyText extends StatelessWidget {
                 text: Constants.agreeTextAnd,
                 style: const TextStyle(
                   fontSize: 15,
-                  fontFamily: 'Inter',
+                  fontFamily: AppFonts.font,
                   color: Color(0xff545454),
                   fontWeight: FontWeight.w400,
                 ),
@@ -183,7 +186,7 @@ class TermsAndPrivacyText extends StatelessWidget {
                 text: Constants.privacyPolicy,
                 style: const TextStyle(
                   fontSize: 15,
-                  fontFamily: 'Inter',
+                  fontFamily: AppFonts.font,
                   color: Color(0xff009980),
                   fontWeight: FontWeight.w500,
                 ),
@@ -213,7 +216,7 @@ class BackButtonWidget extends StatelessWidget {
         Constants.backButtonText,
         style: TextStyle(
           fontSize: 16,
-          fontFamily: 'Inter',
+          fontFamily: AppFonts.font,
           fontWeight: FontWeight.w400,
           color: Colors.black,
         ),
@@ -269,6 +272,44 @@ class OtpTextField extends StatelessWidget {
   }
 }
 
+class ResendButton extends StatelessWidget {
+  final double horizontalMargin;
+
+  const ResendButton({Key? key, required this.horizontalMargin})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Align(
+      alignment: Alignment.centerLeft,
+      child: Container(
+        margin: EdgeInsets.symmetric(horizontal: horizontalMargin),
+        child: RichText(
+          textAlign: TextAlign.left,
+          text: TextSpan(
+            children: [
+              TextSpan(
+                text: Constants.otpFourthMessage,
+                style: const TextStyle(
+                  fontSize: 15,
+                  fontFamily: AppFonts.font,
+                  color: Color(0xff009980),
+                  fontWeight: FontWeight.w500,
+                ),
+                recognizer: TapGestureRecognizer()
+                  ..onTap = () {
+                    print('Resend clicked');
+                  },
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+
 class OtpPageButton extends StatelessWidget {
   final VoidCallback onPressed;
 
@@ -282,7 +323,7 @@ class OtpPageButton extends StatelessWidget {
       onPressed: onPressed,
       child: const Text(
         Constants.otpButtonLabel,
-        style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
+        style: TextStyle(fontFamily: AppFonts.font ,color: Colors.white, fontWeight: FontWeight.w600),
       ),
       style: ElevatedButton.styleFrom(
         padding: EdgeInsets.symmetric(
@@ -398,6 +439,7 @@ class CurrentLocationButton extends StatelessWidget {
             Text(
               Constants.mapCurrentLocationLabel,
               style: TextStyle(
+                fontFamily: AppFonts.font,
                 color: Colors.black,
                 fontWeight: FontWeight.w500,
                 fontSize: 14,
@@ -424,7 +466,7 @@ class MapPageButton extends StatelessWidget {
       onPressed: onPressed,
       child: const Text(
         Constants.mapButtonLabel,
-        style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600, fontSize: 14),
+        style: TextStyle(fontFamily: AppFonts.font ,color: Colors.white, fontWeight: FontWeight.w600, fontSize: 14),
       ),
       style: ElevatedButton.styleFrom(
         padding: EdgeInsets.symmetric(
