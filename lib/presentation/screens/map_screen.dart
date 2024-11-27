@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:homiefix_application/presentation/screens/account_screen.dart';
+import 'package:homiefix_application/presentation/widgets/bottom_navigation_bar.dart';
 import 'package:location/location.dart';
 import 'package:homiefix_application/presentation/constants/static.constants.dart';
 import 'package:homiefix_application/presentation/screens/login_screen.dart';
@@ -155,7 +156,7 @@ class _InitialMapPageState extends State<InitialMapPage> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => Account(),
+                        builder: (context) => BottomNavigation(),
                       ),
                     );
                   },
