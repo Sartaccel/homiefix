@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:homiefix_application/presentation/screens/profile_edit_screen.dart';
+import 'package:homiefix_application/presentation/screens/profile_screen.dart';
+import 'package:homiefix_application/presentation/widgets/bottom_navigation_bar.dart';
+import 'package:homiefix_application/presentation/widgets/custom_button.dart';
 import 'package:homiefix_application/presentation/screens/login_screen.dart';
 import 'package:homiefix_application/presentation/widgets/bottom_navigation_bar.dart';
 
@@ -9,15 +13,17 @@ class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
   @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+
+  @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      debugShowCheckedModeBanner: false,
-      home: SignIn(),
+     debugShowCheckedModeBanner: false,
+      home: ProfileEditScreen()
+      
     );
   }
 }

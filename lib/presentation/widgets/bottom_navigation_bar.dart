@@ -1,23 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+<<<<<<< HEAD
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:homiefix_application/presentation/blocs/bottomnav/navigation.dart';
 import 'package:homiefix_application/presentation/constants/icons.dart';
 import 'package:homiefix_application/presentation/constants/static.constants.dart';
+=======
+import 'package:homiefix_application/presentation/blocs/bottomnav/navigation.dart';
+import 'package:homiefix_application/presentation/constants/icons.dart';
+import 'package:homiefix_application/presentation/constants/static.constants.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+>>>>>>> jijo
 import 'package:homiefix_application/presentation/screens/profile_screen.dart';
 import 'package:homiefix_application/presentation/themes/colors.dart';
 
-class BottomNavigation extends StatefulWidget {
-  const BottomNavigation({super.key});
+class BottomNavigation extends StatelessWidget {
+  BottomNavigation({super.key});
 
+<<<<<<< HEAD
   @override
   _BottomNavigationState createState() => _BottomNavigationState();
 }
 
 class _BottomNavigationState extends State<BottomNavigation> {
+=======
+>>>>>>> jijo
   final PageController _pageController = PageController();
   int _selectedIndex = 0;
 
+<<<<<<< HEAD
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
@@ -31,6 +42,8 @@ class _BottomNavigationState extends State<BottomNavigation> {
     });
   }
 
+=======
+>>>>>>> jijo
   BottomNavigationBarItem _buildBottomNavigationBarItem({
     required String icon,
     required String activeIcon,

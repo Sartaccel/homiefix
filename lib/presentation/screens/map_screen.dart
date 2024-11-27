@@ -34,7 +34,7 @@ class _InitialMapPageState extends State<InitialMapPage> {
     if (!serviceEnabled) {
       serviceEnabled = await _location.requestService();
       if (!serviceEnabled) {
-        return; // If service is not enabled, exit
+        return; 
       }
     }
 

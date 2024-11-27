@@ -20,4 +20,8 @@ class Name extends StatelessWidget {
       ),
     );
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> jijo

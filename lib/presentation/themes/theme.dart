@@ -12,4 +12,8 @@ class AppTheme {
       ),
     );
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> jijo

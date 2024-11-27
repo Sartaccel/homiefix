@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:homiefix_application/presentation/constants/icons.dart';
 import 'package:homiefix_application/presentation/constants/static.constants.dart';
+
 import 'package:homiefix_application/presentation/screens/login_screen.dart';
+
+
 import 'package:homiefix_application/presentation/themes/colors.dart';
 import 'package:homiefix_application/presentation/widgets/custom_button.dart';
 import 'package:homiefix_application/presentation/widgets/profile_widget/location.dart';
@@ -21,7 +24,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
+
     final paddingValue = screenSize.width * 0.06 ;
+    
+
 
     return SafeArea(
       child: Scaffold(
@@ -71,7 +77,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ProfileOption(
                   image: AppIcons.location,
                   title: Constants.manageAddressTitle,
+
                   subtitle: Constants.manageAddressInfo,   
+
+                  
                   onTap: () {
                     
                   },
@@ -114,6 +123,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 SizedBox(height: screenSize.width * 0.05),
                 Referbox(),
                 SizedBox(height: screenSize.width * 0.05),
+
                 SignInAccountButton(onPressed: () {
                         Navigator.push(
                           context,
@@ -124,6 +134,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         );
                         print("Sign in account button pressed");
                       })
+
+                SignInbutton(),
+
               ],
             ),
           ),
@@ -131,4 +144,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
       ),
     );
   }
+
 }
+

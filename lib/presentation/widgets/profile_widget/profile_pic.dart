@@ -60,4 +60,8 @@ class ProfilePic extends StatelessWidget {
       ),
     );
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> jijo
