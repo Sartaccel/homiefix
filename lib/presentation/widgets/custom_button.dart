@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:homiefix_application/presentation/constants/static.constants.dart';
@@ -29,7 +30,6 @@ class SkipButton extends StatelessWidget {
 }
 
 class SignInTextField extends StatelessWidget {
-//  final TextEditingController countryCodeController;
   final TextEditingController phoneNumberController;
 
   const SignInTextField({
@@ -57,8 +57,7 @@ class SignInTextField extends StatelessWidget {
           SizedBox(
             width: screenWidth * 0.1, // Responsive width for country code
             child: TextField(
-             // controller: countryCodeController,
-             // keyboardType: TextInputType.phone,
+            
               decoration: InputDecoration(
                 hintText: Constants.mobileNumberCountryCodeLabel,
                 hintStyle: TextStyle(
@@ -344,7 +343,7 @@ class MapSearchTextField extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white.withOpacity(0.8),
         borderRadius: BorderRadius.circular(10),
-        boxShadow: [
+        boxShadow: const [
           BoxShadow(
             color: Color(0xffD9D9D9),
             blurRadius: 5,
@@ -459,17 +458,17 @@ class _SignInButtonState extends State<SignInbutton> {
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
-    final screenHeight = MediaQuery.of(context).size.height;
+    
 
     final buttonWidth = screenWidth * 0.9; 
-    final buttonHeight = screenHeight * 0.06;
+
 
     return Center(
       child: MaterialButton(
         child: Text(
           Constants.SignInButtontext,
           style: GoogleFonts.figtree(
-            fontSize: screenWidth * 0.04, // Responsive font size
+            fontSize: screenWidth * 0.04, 
             fontWeight: FontWeight.w600
           ),
         ),
@@ -479,7 +478,128 @@ class _SignInButtonState extends State<SignInbutton> {
         color: AppColors.ButtonColour,
         textColor: AppColors.ButtonTextColor,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(screenWidth * 0.025), // Responsive border radius
+          borderRadius: BorderRadius.circular(screenWidth * 0.025), 
+        ),
+        minWidth: buttonWidth,
+        height: 44
+      ),
+    );
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+class CustomTextField extends StatelessWidget {
+  final TextEditingController controller;
+  final String labelText;
+  final String? errorText; // Optional error text
+  final TextInputType inputType; // Specify input type
+
+  const CustomTextField({
+    super.key, 
+    required this.controller, 
+    required this.labelText, 
+    this.errorText, 
+    required this.inputType, // Specify input type
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+  
+    final double width = screenWidth * 0.87; 
+   
+
+    return Container(
+      width: width,
+      height: 44,
+      child: TextField(
+        controller: controller,
+        keyboardType: inputType, 
+        textAlign: TextAlign.center, 
+        decoration: InputDecoration(
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10.0),
+            borderSide: BorderSide(color: AppColors.borderfield), 
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10.0),
+            borderSide: BorderSide(color: AppColors.borderfield),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10.0),
+            borderSide: BorderSide(color: AppColors.borderfield), 
+          ),
+          filled: true,
+          fillColor: AppColors.bottombackground,
+          labelText: labelText,
+          labelStyle: TextStyle(
+            fontSize: screenWidth * 0.03, 
+            fontWeight: FontWeight.w400, 
+            color:AppColors.textfieldtext, 
+            fontFamily: 'inter'
+          ),
+          floatingLabelBehavior: FloatingLabelBehavior.never,
+          errorText: errorText, 
+        ),
+        style: TextStyle(
+          fontSize: screenWidth * 0.04,
+          color: AppColors.textfieldtype,
+        ),
+      ),
+    );
+  }
+}
+
+class updatebutton extends StatefulWidget {
+  const updatebutton({super.key});
+
+  @override
+  State<updatebutton> createState() => _updatebuttonState();
+}
+
+
+
+class _updatebuttonState extends State<updatebutton> {
+  @override
+  Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
+    final buttonWidth = screenWidth * 0.9; 
+    final buttonHeight = screenHeight * 0.05;
+
+    return Center(
+      child: MaterialButton(
+        child: Text(
+          Constants.update,
+          style: GoogleFonts.figtree(
+            fontSize: screenWidth * 0.04, 
+            fontWeight: FontWeight.w600
+          ),
+        ),
+        onPressed: () {
+
+        },
+        color: AppColors.ButtonColour,
+        textColor: AppColors.ButtonTextColor,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(screenWidth * 0.025), 
         ),
         minWidth: buttonWidth,
         height: buttonHeight,

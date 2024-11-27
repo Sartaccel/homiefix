@@ -1,7 +1,7 @@
 class Constants {
   static const String loginButtonText="Login / ";
   static const String signupButtonText="Signup";  
-  //static const String logoutButtonText="Logout";
+  
   static const String mobileNumberCountryCodeLabel="+91";
   static const String mobileNumberFieldLabel="Enter your mobile number";
   static const String agreeText = "By continuing, I agree to the ";
@@ -41,13 +41,16 @@ class Constants {
   static const String termsandConditionsinfo="Privacy policy";
   static const String referHead="Refer & Earn";
   static const String referinfo = "Get offered coupons when your\nfriend completes their first booking.";
-
   static const String invite="Invite friends now";
   static const String homeNavi="Home";
   static const String cartNavi="Cart";
   static const String profileNavi = "Profile";
   static const String searchBar="Search";
   static const String SignInButtontext="Sign in";
+  static const String fullname ="Full Name";
+  static const String emailaddress="Email Address";
+  static const String phoneNumber="Phone Number";
+  static const String update='Update';
 }
 
               
