@@ -80,7 +80,7 @@ class _SignInState extends State<SignIn> {
                           fontSize: 18.0,
                           fontWeight: FontWeight.w500,
                           color: Color(0xff333333),
-                          fontFamily: 'Inter',
+                          fontFamily: 'Figtree',
                         ),
                       ),
                     ],
@@ -90,7 +90,9 @@ class _SignInState extends State<SignIn> {
                     //  countryCodeController: _countryCodeController,
                     phoneNumberController: _phoneNumberController,
                   ),
-                  SizedBox(height: 10),
+                  SizedBox(height: 45),
+                  TermsAndPrivacyText(horizontalMargin: screenWidth * 0.05),
+                  SizedBox(height: 15),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -106,11 +108,11 @@ class _SignInState extends State<SignIn> {
                       })
                     ],
                   ),
-                  SizedBox(height: 15),
-                  TermsAndPrivacyText(horizontalMargin: screenWidth * 0.05),
                 ],
               ),
+              
             ),
+            
           ],
         ),
       ),

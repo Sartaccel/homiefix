@@ -1,6 +1,6 @@
 class Constants {
   static const String loginButtonText="Login / ";
-  static const String signupButtonText="Signup";  
+  static const String signupButtonText="Signup";
   //static const String logoutButtonText="Logout";
   static const String mobileNumberCountryCodeLabel="+91";
   static const String mobileNumberFieldLabel="Enter your mobile number";
@@ -45,11 +45,7 @@ class Constants {
   static const String cartNavi="Cart";
   static const String profileNavi = "Profile";
   static const String searchBar="Search";
-  static const String jo="Search";
-  static const String joj="Search";
-
-  
-
+  static const String settingstitleinfo="Notification, Language, Delete my account";
+  static const String signInAccountLabel="Sign in";
 }
-
               
