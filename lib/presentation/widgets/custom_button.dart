@@ -5,11 +5,8 @@ import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:homiefix_application/presentation/constants/static.constants.dart';
 import 'package:homiefix_application/presentation/screens/login_screen.dart';
-<<<<<<< HEAD
 import 'package:homiefix_application/presentation/themes/fonts.dart';
-=======
 import 'package:homiefix_application/presentation/themes/colors.dart';
->>>>>>> jijo
 
 class SkipButton extends StatelessWidget {
   final VoidCallback onPressed;
@@ -63,7 +60,7 @@ class SignInTextField extends StatelessWidget {
             child: TextField(
             
               decoration: InputDecoration(
-                hintText: Constants.mobileNumberCountryCodeLabel,
+                hintText: Constants.mobileNumberFieldLabel,
                 hintStyle: TextStyle(
                   color: Colors.black,
                   fontSize: 14,
@@ -513,46 +510,10 @@ class SignInAccountButton extends StatelessWidget {
         backgroundColor: Color(0xff009980),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8.0),
-
-class SignInbutton extends StatefulWidget {
-  const SignInbutton({super.key});
-
-  @override
-  State<SignInbutton> createState() => _SignInButtonState();
-}
-
-
-
-class _SignInButtonState extends State<SignInbutton> {
-  @override
-  Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-    
-
-    final buttonWidth = screenWidth * 0.9; 
-
-
-    return Center(
-      child: MaterialButton(
-        child: Text(
-          Constants.SignInButtontext,
-          style: GoogleFonts.figtree(
-            fontSize: screenWidth * 0.04, 
-            fontWeight: FontWeight.w600
-          ),
-        ),
-        onPressed: () {
-
-        },
-        color: AppColors.ButtonColour,
-        textColor: AppColors.ButtonTextColor,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(screenWidth * 0.025), 
-        ),
-        minWidth: buttonWidth,
-        height: 44
-      ),
-    );
+            )
+      )
+        );
+  
   }
 }
 
@@ -560,20 +521,46 @@ class _SignInButtonState extends State<SignInbutton> {
 
 
 
+class SignInButton1 extends StatefulWidget {
+  const SignInButton1({super.key});
+
+  @override
+  State<SignInButton1> createState() => _SignInButton1State();
+}
+
+class _SignInButton1State extends State<SignInButton1> {
+  @override
+  Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final buttonWidth = screenWidth * 0.9;
+
+    return Center(
+      child: MaterialButton(
+        onPressed: () {
+          // Add your onPressed action here
+        },
+        color: AppColors.ButtonColour,
+        textColor: AppColors.ButtonTextColor,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(screenWidth * 0.025),
+        ),
+        minWidth: buttonWidth,
+        height: 44,
+        child: Text(
+          Constants.SignInButtontext,
+          style: GoogleFonts.figtree(
+            fontSize: screenWidth * 0.04,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+      ),
+    );
+  }
+}
 
 
 
-
-
-
-
-
-
-
-
-
-
-class CustomTextField extends StatelessWidget {
+Class CustomTextField extends StatelessWidget {
   final TextEditingController controller;
   final String labelText;
   final String? errorText; // Optional error text
@@ -633,10 +620,8 @@ class CustomTextField extends StatelessWidget {
       ),
     );
   }
-<<<<<<< HEAD
 }
-=======
-}
+
 
 class updatebutton extends StatefulWidget {
   const updatebutton({super.key});
@@ -679,4 +664,4 @@ class _updatebuttonState extends State<updatebutton> {
     );
   }
 }
->>>>>>> jijo
+        
