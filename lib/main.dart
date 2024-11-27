@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:homiefix_application/presentation/screens/profile_edit_screen.dart';
-import 'package:homiefix_application/presentation/screens/profile_screen.dart';
-import 'package:homiefix_application/presentation/widgets/bottom_navigation_bar.dart';
-import 'package:homiefix_application/presentation/widgets/custom_button.dart';
+
 
 void main() {
   runApp(const MyApp());
