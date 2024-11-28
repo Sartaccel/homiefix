@@ -59,7 +59,7 @@ class _ProfileEditScreenState extends State<ProfileEditScreen> {
                   controller: _fullNameController,
                   labelText: 'Enter your Name',
                   
-                  inputType: TextInputType.name, // Specify input type
+                  inputType: TextInputType.name, 
                 ),
                 SizedBox(height: screenSize.width * 0.02),
                 Text(

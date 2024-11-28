@@ -35,7 +35,7 @@ class SignInTextField extends StatelessWidget {
 
   const SignInTextField({
     Key? key,
-   // required this.countryCodeController,
+   
     required this.phoneNumberController,
   }) : super(key: key);
 
@@ -625,21 +625,17 @@ Class CustomTextField extends StatelessWidget {
 
 class updatebutton extends StatefulWidget {
   const updatebutton({super.key});
-
   @override
   State<updatebutton> createState() => _updatebuttonState();
 }
-
-
-
 class _updatebuttonState extends State<updatebutton> {
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
-    final screenHeight = MediaQuery.of(context).size.height;
+    
 
     final buttonWidth = screenWidth * 0.9; 
-    final buttonHeight = screenHeight * 0.05;
+    
 
     return Center(
       child: MaterialButton(
@@ -659,7 +655,7 @@ class _updatebuttonState extends State<updatebutton> {
           borderRadius: BorderRadius.circular(screenWidth * 0.025), 
         ),
         minWidth: buttonWidth,
-        height: buttonHeight,
+        height: 44
       ),
     );
   }
