@@ -36,7 +36,7 @@ static const Color devider=Color.fromRGBO(0, 0, 0, 0.03);
 static const Color location=Color(0xFF636363);
 static const Color username=Color(0xFF000000);
 static const Color fullname = Color(0xFF333333);
-static const Color textfieldtext =Color(0xFFB2B2B2);
+static const Color textfieldtext =Color(0xFFB3B3B3);
 static const Color textfieldtype= Color(0xFF191919);
 static const Color borderfield=Color(0xFFEEEEEE);
 

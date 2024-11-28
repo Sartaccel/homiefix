@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:homiefix_application/presentation/constants/static.constants.dart';
 import 'package:homiefix_application/presentation/themes/colors.dart';
-import 'package:homiefix_application/presentation/widgets/custom_button.dart';
 import 'package:homiefix_application/presentation/widgets/profile_widget/location.dart';
 import 'package:homiefix_application/presentation/widgets/profile_widget/profile_pic.dart';
 import 'package:homiefix_application/presentation/widgets/profile_widget/username.dart';
@@ -74,6 +73,7 @@ class _ProfileEditScreenState extends State<ProfileEditScreen> {
                   controller: _emailController,
                   labelText: 'Enter your email',
                   inputType: TextInputType.emailAddress,
+                  
                    
                 ),
                 SizedBox(height: screenSize.width * 0.02),
@@ -85,9 +85,12 @@ class _ProfileEditScreenState extends State<ProfileEditScreen> {
                   ),
                 ),
                 SizedBox(height: screenSize.width * 0.02),
-                
+                SignInTextField1(
+                  phoneNumberController: _phoneNumberController,
+                  
+                ),
                 SizedBox(height: screenSize.width * 0.1),
-                updatebutton()
+                 updatebutton()
               ],
             ),
           ),

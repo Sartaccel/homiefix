@@ -7,11 +7,13 @@ import 'package:homiefix_application/presentation/screens/login_screen.dart';
 
 import 'package:homiefix_application/presentation/themes/colors.dart';
 import 'package:homiefix_application/presentation/widgets/custom_button.dart';
+
 import 'package:homiefix_application/presentation/widgets/profile_widget/location.dart';
 import 'package:homiefix_application/presentation/widgets/profile_widget/profile_pic.dart';
 import 'package:homiefix_application/presentation/widgets/profile_widget/profileoption.dart';
 import 'package:homiefix_application/presentation/widgets/profile_widget/referbox.dart';
 import 'package:homiefix_application/presentation/widgets/profile_widget/username.dart';
+
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -133,7 +135,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           ),
                         );
                         print("Sign in account button pressed");
-                      })
+                      }),
 
                 SignInbutton(),
 

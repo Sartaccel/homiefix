@@ -13,11 +13,7 @@ class Referbox extends StatelessWidget {
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
     final boxWidth = screenWidth * 0.83; 
-<<<<<<< HEAD
     final boxHeight = screenHeight * 0.15;
-=======
-    final boxHeight = screenHeight * 0.17;
->>>>>>> jijo
     final paddingValue = screenWidth * 0.03; 
 
     return Card(
@@ -96,8 +92,4 @@ class Referbox extends StatelessWidget {
       ),
     );
   }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> jijo

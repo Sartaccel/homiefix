@@ -56,8 +56,4 @@ class ProfileOption extends StatelessWidget {
       onTap: onTap,
     );
   }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> jijo

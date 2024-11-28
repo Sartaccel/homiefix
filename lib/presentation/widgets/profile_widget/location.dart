@@ -22,8 +22,4 @@ class Location extends StatelessWidget {
       maxLines: 1,  
     );
   }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> jijo
