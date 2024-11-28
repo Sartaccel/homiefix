@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:homiefix_application/presentation/screens/login_screen.dart';
+import 'package:homiefix_application/presentation/screens/profile_edit_screen.dart';
 
 
 
@@ -19,7 +20,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
      debugShowCheckedModeBanner: false,
-      home: SignIn()
+      home: ProfileEditScreen()
       
     );
   }

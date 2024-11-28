@@ -6,6 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:homiefix_application/presentation/constants/static.constants.dart';
 import 'package:homiefix_application/presentation/screens/login_screen.dart';
 import 'package:homiefix_application/presentation/themes/colors.dart';
+import 'package:homiefix_application/presentation/themes/fonts.dart';
 
 class SkipButton extends StatelessWidget {
   final VoidCallback onPressed;
@@ -168,7 +169,7 @@ class TermsAndPrivacyText extends StatelessWidget {
                 ),
                 recognizer: TapGestureRecognizer()
                   ..onTap = () {
-                    print('Terms of Use clicked');
+              
                   },
               ),
               TextSpan(
@@ -472,9 +473,7 @@ class _SignInButtonState extends State<SignInbutton> {
             fontWeight: FontWeight.w600
           ),
         ),
-        onPressed: () {
-
-        },
+        onPressed: () { },
         color: AppColors.ButtonColour,
         textColor: AppColors.ButtonTextColor,
         shape: RoundedRectangleBorder(
@@ -531,7 +530,7 @@ class CustomTextField extends StatelessWidget {
       child: TextField(
         controller: controller,
         keyboardType: inputType, 
-        textAlign: TextAlign.center, 
+        
         decoration: InputDecoration(
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10.0),
@@ -602,4 +601,84 @@ class _updatebuttonState extends State<updatebutton> {
       ),
     );
   }
+}
+
+class SignInTextField1 extends StatelessWidget {
+  //  final TextEditingController countryCodeController;
+    final TextEditingController phoneNumberController;
+
+    const SignInTextField1({
+      Key? key,
+    // required this.countryCodeController,
+      required this.phoneNumberController,
+    }) : super(key: key);
+
+    @override
+    Widget build(BuildContext context) {
+      double screenWidth = MediaQuery.of(context).size.width;
+
+      return Container(
+        width: screenWidth * 0.89, // Responsive width
+        height: 44, // Fixed height for input fields
+        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 0),
+        decoration: BoxDecoration(
+          color: const Color(0xFFFCFCFC),
+          border: Border.all(color: Color(0xffD9D9D9), width: 1),
+          borderRadius: BorderRadius.circular(8),
+        ),
+        child: Row(
+          children: [
+            SizedBox(width: 5),
+            SizedBox(
+              width: screenWidth * 0.1, // Responsive width for country code
+              child: TextField(
+              // controller: countryCodeController,
+              // keyboardType: TextInputType.phone,
+                decoration: InputDecoration(
+                  hintText: Constants.mobileNumberCountryCodeLabel,
+                  hintStyle: TextStyle(
+                    color: Colors.black,
+                    fontSize: 14,
+                    fontWeight: FontWeight.w400,
+                    fontFamily: AppFonts.font,
+                  ),
+                  border: InputBorder.none,
+                  contentPadding: EdgeInsets.symmetric(vertical: 13),
+                ),
+                enabled: false,
+              ),
+            ),
+        //    SvgPicture.asset("assets/images/phone_textfield_arrow.svg"),
+            const SizedBox(width: 10),
+            VerticalDivider(
+              color: Colors.grey,
+              width: 1,
+              thickness: 1,
+              indent: 5,
+              endIndent: 5,
+            ),
+            const SizedBox(width: 10),
+            Flexible(
+              child: TextField(
+                controller: phoneNumberController,
+                keyboardType: TextInputType.phone,
+                maxLength: 10,
+                decoration: InputDecoration(
+                  hintText: Constants.mobileNumberFieldLabel,
+                  hintStyle: TextStyle(
+                    color: AppColors.textfieldtext,
+                    fontSize: 14,
+                    fontWeight: FontWeight.w400,
+                    fontFamily: AppFonts.font,
+                  ),
+                  counterText: '',
+                  border: InputBorder.none,
+                  contentPadding: EdgeInsets.symmetric(vertical: 13),
+                ),
+              ),
+            ),
+          ],
+        ),
+      );
+    }
 }

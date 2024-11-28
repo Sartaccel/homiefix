@@ -74,6 +74,7 @@ class _ProfileEditScreenState extends State<ProfileEditScreen> {
                   controller: _emailController,
                   labelText: 'Enter your email',
                   inputType: TextInputType.emailAddress,
+                  
                    
                 ),
                 SizedBox(height: screenSize.width * 0.02),
@@ -85,12 +86,12 @@ class _ProfileEditScreenState extends State<ProfileEditScreen> {
                   ),
                 ),
                 SizedBox(height: screenSize.width * 0.02),
-                SignInTextField(
+                SignInTextField1(
                   phoneNumberController: _phoneNumberController,
                   
                 ),
                 SizedBox(height: screenSize.width * 0.1),
-                updatebutton()
+                 updatebutton()
               ],
             ),
           ),
