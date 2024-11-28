@@ -1,12 +1,9 @@
 class Constants {
   static const String loginButtonText="Login / ";
-<<<<<<< HEAD
+
   static const String signupButtonText="Signup";
   //static const String logoutButtonText="Logout";
-=======
-  static const String signupButtonText="Signup";  
   
->>>>>>> jijo
   static const String mobileNumberCountryCodeLabel="+91";
   static const String mobileNumberFieldLabel="Enter your mobile number";
   static const String agreeText = "By continuing, I agree to the ";
@@ -52,7 +49,7 @@ class Constants {
   static const String profileNavi = "Profile";
   static const String searchBar="Search";
 
-  static const String settingstitleinfo="Notification, Language, Delete my account";
+  
   static const String signInAccountLabel="Sign in";
   static const String SignInButtontext="Sign in";
   static const String fullname ="Full Name";

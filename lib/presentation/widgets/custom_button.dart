@@ -1,10 +1,8 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:homiefix_application/presentation/constants/static.constants.dart';
-import 'package:homiefix_application/presentation/screens/login_screen.dart';
+
 import 'package:homiefix_application/presentation/themes/fonts.dart';
 import 'package:homiefix_application/presentation/themes/colors.dart';
 

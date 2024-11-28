@@ -85,10 +85,7 @@ class _ProfileEditScreenState extends State<ProfileEditScreen> {
                   ),
                 ),
                 SizedBox(height: screenSize.width * 0.02),
-                SignInTextField(
-                  phoneNumberController: _phoneNumberController,
-                  
-                ),
+                
                 SizedBox(height: screenSize.width * 0.1),
                 updatebutton()
               ],
