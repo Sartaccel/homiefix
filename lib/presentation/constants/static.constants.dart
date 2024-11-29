@@ -1,21 +1,32 @@
 class Constants {
-  static const String loginButtonText="login";
-  static const String signupButtonText="signup";
-  static const String logoutButtonText="Logout";
+  static const String loginButtonText="Login / ";
+  static const String signupButtonText="Signup";
+  //static const String logoutButtonText="Logout";
+  static const String mobileNumberCountryCodeLabel="+91";
   static const String mobileNumberFieldLabel="Enter your mobile number";
+  static const String agreeText = "By continuing, I agree to the ";
+  static const String agreeTextAnd = " & ";
   static const String termsOfUse = "Terms of Use";
   static const String privacyPolicy = "Privacy Policy";
-  static const String agreeText = "By continuing, I agree to the ";
   static const String validMobileNumberMessage = "Please enter a valid mobile number";
   static const String loginButtonLabel="Continue";
-  static const String skipButtonText= "Skip";
-  static const String backButtonText= "Back";
+  static const String skipButtonText= "Skip ";
+  static const String skipButtonArrow= "->";
+  static const String backButtonText= " Back";
+  static const String backButtonArrow= "<-";
   static const String otpVerificationHeading="OTP Verification";
-  static const String otpFirstMessage="We’ve sent an OTP to phoneNumber. Enter the OTP code below.";
-  static const String otpSecondMessage="Didn't get the code?";
-  static const String otpThirdMessage="Resend";
+  static const String otpFirstMessage="We’ve sent an OTP to phoneNumber.";
+  static const String otpSecondMessage="Enter the OTP code below.";
+  static const String otpThirdMessage="Didn't get the code?";
+  static const String otpFourthMessage="Resend";
   static const String otpErrorMessage="Please enter the OTP";
   static const String otpIncorrectMessage="Incorrect OTP";
+  static const String otpButtonLabel="Continue";
+  static const String mapTextfieldLabel="Search";
+  static const String mapCurrentLocationLabel="Current Location";
+  static const String mapText1="Your service location";
+  static const String mapText2="5957+GH9, Main Road, Santhapuram, Tamil Nadu 629201";
+  static const String mapButtonLabel="Continue";
   static const String profilename="Hi, Guest";
   static const String location="Location";
   static const String myOrderTitle="My Order";
@@ -36,10 +47,9 @@ class Constants {
   static const String cartNavi="Cart";
   static const String profileNavi = "Profile";
   static const String searchBar="Search";
-   static const String jo="Search";
-     static const String joj="Search";
-      static const String joji="Search";
-  
+  static const String settingstitleinfo="Notification, Language, Delete my account";
+  static const String signInAccountLabel="Sign in";
+  static const String logoutButtonLabel="Logout";
 }
 
               

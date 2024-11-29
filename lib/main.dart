@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:homiefix_application/presentation/screens/login_screen.dart';
 import 'package:homiefix_application/presentation/widgets/bottom_navigation_bar.dart';
 
 void main() {
@@ -16,7 +17,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-     home: BottomNavigation(),
+     home: SignIn(),
     );
   }
 }

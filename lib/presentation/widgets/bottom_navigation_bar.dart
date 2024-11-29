@@ -1,17 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:homiefix_application/presentation/blocs/bottomnav/navigation.dart';
+import 'package:homiefix_application/presentation/constants/icons.dart';
 import 'package:homiefix_application/presentation/constants/static.constants.dart';
+import 'package:homiefix_application/presentation/screens/home_screen.dart';
+import 'package:homiefix_application/presentation/screens/profile_screen.dart';
+import 'package:homiefix_application/presentation/themes/colors.dart';
 
 class BottomNavigation extends StatefulWidget {
   const BottomNavigation({super.key});
 
   @override
-  // ignore: library_private_types_in_public_api
   _BottomNavigationState createState() => _BottomNavigationState();
 }
 
 class _BottomNavigationState extends State<BottomNavigation> {
-  int _selectedIndex = 0;
   final PageController _pageController = PageController();
+  int _selectedIndex = 0;
 
   void _onItemTapped(int index) {
     setState(() {
@@ -26,47 +32,71 @@ class _BottomNavigationState extends State<BottomNavigation> {
     });
   }
 
-  BottomNavigationBarItem _buildBottomNavigationBarItem(
-    IconData outlinedIcon, 
-    IconData filledIcon, 
-    String label, 
-    int index) {
+  BottomNavigationBarItem _buildBottomNavigationBarItem({
+    required String icon,
+    required String activeIcon,
+    required String label,
+  }) {
     return BottomNavigationBarItem(
-      icon: Icon(_selectedIndex == index ? filledIcon : outlinedIcon),
+      icon: SvgPicture.asset(icon),
+      activeIcon: SvgPicture.asset(activeIcon),
       label: label,
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: PageView(
-        controller: _pageController,
-        onPageChanged: _onPageChanged,
-        children: const <Widget>[
-          Center(child: Text('Home')),
-          Center(child: Text('Search')),
-          Center(child: Text('Profile')),
-        ],
-      ),
-      bottomNavigationBar: Theme(
-        data: Theme.of(context).copyWith(
-          splashFactory: NoSplash.splashFactory, // Removes ripple effect
-          highlightColor: Colors.transparent,   // Removes highlight effect
-        ),
-        child: BottomNavigationBar(
-          type: BottomNavigationBarType.fixed,
-          items: [
-            _buildBottomNavigationBarItem(Icons.home_outlined, Icons.home, Constants.homeNavi, 0),
-            _buildBottomNavigationBarItem(Icons.shopping_cart_outlined, Icons.shopping_cart, Constants.cartNavi, 1),
-            _buildBottomNavigationBarItem(Icons.person_outline_rounded, Icons.person, Constants.profileNavi, 2),
-          ],
-          currentIndex: _selectedIndex,
-          selectedItemColor: Colors.green,
-          unselectedItemColor: Colors.black,
-          onTap: _onItemTapped,
-
-        ),
+    return BlocProvider(
+      create: (_) => NavigationCubit(),
+      child: BlocBuilder<NavigationCubit, int>(
+        builder: (context, selectedIndex) {
+          return Scaffold(
+            body: PageView(
+              controller: _pageController,
+              onPageChanged: (index) =>
+                  context.read<NavigationCubit>().selectPage(index),
+              children: const <Widget>[
+                HomeScreen(),
+                Center(child: Text('Search')),
+                ProfileScreen()
+              ],
+            ),
+            bottomNavigationBar: Theme(
+              data: Theme.of(context).copyWith(
+                bottomNavigationBarTheme: BottomNavigationBarThemeData(
+                  selectedItemColor: AppColors.BottomNavbarIconSelected,
+                  unselectedItemColor: AppColors.BottomNavbarIconUnselected,
+                  backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+                  type: BottomNavigationBarType.fixed,
+                ),
+              ),
+              child: BottomNavigationBar(
+                currentIndex: selectedIndex,
+                onTap: (index) {
+                  context.read<NavigationCubit>().selectPage(index);
+                  _pageController.jumpToPage(index);
+                },
+                items: [
+                  _buildBottomNavigationBarItem(
+                    icon: AppIcons.home,
+                    activeIcon: AppIcons.homeactive,
+                    label: Constants.homeNavi,
+                  ),
+                  _buildBottomNavigationBarItem(
+                    icon: AppIcons.cart,
+                    activeIcon: AppIcons.activecart,
+                    label: Constants.cartNavi,
+                  ),
+                  _buildBottomNavigationBarItem(
+                    icon: AppIcons.profile,
+                    activeIcon: AppIcons.activeprofile,
+                    label: Constants.profileNavi,
+                  ),
+                ],
+              ),
+            ),
+          );
+        },
       ),
     );
   }
