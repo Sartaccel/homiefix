@@ -17,20 +17,6 @@ class BottomNavigation extends StatefulWidget {
 
 class _BottomNavigationState extends State<BottomNavigation> {
   final PageController _pageController = PageController();
-  int _selectedIndex = 0;
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-    _pageController.jumpToPage(index);
-  }
-
-  void _onPageChanged(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
 
   BottomNavigationBarItem _buildBottomNavigationBarItem({
     required String icon,
@@ -58,42 +44,36 @@ class _BottomNavigationState extends State<BottomNavigation> {
               children: const <Widget>[
                 HomeScreen(),
                 Center(child: Text('Search')),
-                ProfileScreen()
+                ProfileScreen(),
               ],
             ),
-            bottomNavigationBar: Theme(
-              data: Theme.of(context).copyWith(
-                bottomNavigationBarTheme: BottomNavigationBarThemeData(
-                  selectedItemColor: AppColors.BottomNavbarIconSelected,
-                  unselectedItemColor: AppColors.BottomNavbarIconUnselected,
-                  backgroundColor: const Color.fromARGB(255, 255, 255, 255),
-                  type: BottomNavigationBarType.fixed,
+            bottomNavigationBar: BottomNavigationBar(
+              currentIndex: selectedIndex,
+              onTap: (index) {
+                context.read<NavigationCubit>().selectPage(index);
+                _pageController.jumpToPage(index);
+              },
+              items: [
+                _buildBottomNavigationBarItem(
+                  icon: AppIcons.home,
+                  activeIcon: AppIcons.homeactive,
+                  label: Constants.homeNavi,
                 ),
-              ),
-              child: BottomNavigationBar(
-                currentIndex: selectedIndex,
-                onTap: (index) {
-                  context.read<NavigationCubit>().selectPage(index);
-                  _pageController.jumpToPage(index);
-                },
-                items: [
-                  _buildBottomNavigationBarItem(
-                    icon: AppIcons.home,
-                    activeIcon: AppIcons.homeactive,
-                    label: Constants.homeNavi,
-                  ),
-                  _buildBottomNavigationBarItem(
-                    icon: AppIcons.cart,
-                    activeIcon: AppIcons.activecart,
-                    label: Constants.cartNavi,
-                  ),
-                  _buildBottomNavigationBarItem(
-                    icon: AppIcons.profile,
-                    activeIcon: AppIcons.activeprofile,
-                    label: Constants.profileNavi,
-                  ),
-                ],
-              ),
+                _buildBottomNavigationBarItem(
+                  icon: AppIcons.cart,
+                  activeIcon: AppIcons.activecart,
+                  label: Constants.cartNavi,
+                ),
+                _buildBottomNavigationBarItem(
+                  icon: AppIcons.profile,
+                  activeIcon: AppIcons.activeprofile,
+                  label: Constants.profileNavi,
+                ),
+              ],
+              selectedItemColor: AppColors.BottomNavbarIconSelected,
+              unselectedItemColor: AppColors.BottomNavbarIconUnselected,
+              backgroundColor: Colors.white,
+              type: BottomNavigationBarType.fixed,
             ),
           );
         },

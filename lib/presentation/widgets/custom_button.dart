@@ -1,6 +1,8 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:homiefix_application/presentation/constants/static.constants.dart';
 import 'package:homiefix_application/presentation/screens/login_screen.dart';
 import 'package:homiefix_application/presentation/themes/fonts.dart';
@@ -182,7 +184,7 @@ class TermsAndPrivacyText extends StatelessWidget {
                 ),
                 recognizer: TapGestureRecognizer()
                   ..onTap = () {
-                    print('Terms of Use clicked');
+              
                   },
               ),
               TextSpan(
@@ -408,7 +410,7 @@ class MapSearchTextField extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white.withOpacity(0.8),
         borderRadius: BorderRadius.circular(10),
-        boxShadow: [
+        boxShadow: const [
           BoxShadow(
             color: Color(0xffD9D9D9),
             blurRadius: 5,

@@ -99,7 +99,6 @@ class _SignInState extends State<SignIn> {
                   ),
                   SizedBox(height: 16.0),
                   SignInTextField(
-                    //  countryCodeController: _countryCodeController,
                     phoneNumberController: _phoneNumberController,
                   ),
                   SizedBox(height: 40,),
@@ -113,7 +112,7 @@ class _SignInState extends State<SignIn> {
                           context,
                           MaterialPageRoute(
                             builder: (context) =>
-                                OtpEntering(), // Redirect to OTP page
+                                OtpEntering(), 
                           ),
                         );
                         print("Sign in button pressed");
