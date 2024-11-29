@@ -54,12 +54,13 @@ class _OtpEnteringState extends State<OtpEntering> {
                 ],
               ),
             ),
-            SizedBox(height: 10),
+            SizedBox(height: 30),
             SvgPicture.asset(
               "assets/images/login_logo.svg",
               width: 287,
               height: 207,
             ),
+            SizedBox(height: 15,),
             Container(
               margin: EdgeInsets.only(top: 65),
               width: 410,
@@ -68,38 +69,50 @@ class _OtpEnteringState extends State<OtpEntering> {
               child: Column(
                 children: [
                   SizedBox(height: 50),
-                  Text(
-                    Constants.otpVerificationHeading,
-                    style: TextStyle(
-                      fontSize: 18.0,
-                      fontWeight: FontWeight.w500,
-                      color: Color(0xff333333),
-                      fontFamily: AppFonts.font,
+                  Container(
+                    margin: EdgeInsets.only(right: 220),
+                    child: Text(
+                      Constants.otpVerificationHeading,
+                      style: TextStyle(
+                        fontSize: 16.0,
+                        fontWeight: FontWeight.w600,
+                        color: Color(0xff333333),
+                        fontFamily: AppFonts.font,
+                      ),
                     ),
                   ),
-                  SizedBox(height: 5),
-                  Text(
-                    Constants.otpFirstMessage,
-                    style: TextStyle(
-                      fontSize: 14.0,
-                      fontWeight: FontWeight.w400,
-                      color: Color(0xff545454),
-                      fontFamily: AppFonts.font,
+                  SizedBox(height: 15),
+                  Container(
+                    margin: EdgeInsets.only(right: 140),
+                    child: Text(
+                      Constants.otpFirstMessage,
+                      style: TextStyle(
+                        fontSize: 12.0,
+                        fontWeight: FontWeight.w400,
+                        color: Color(0xff545454),
+                        fontFamily: AppFonts.font,
+                      ),
                     ),
                   ),
-                  Text(
-                    Constants.otpSecondMessage,
-                    style: TextStyle(
-                      fontSize: 14.0,
-                      fontWeight: FontWeight.w400,
-                      color: Color(0xff545454),
-                      fontFamily: AppFonts.font,
+                  SizedBox(height: 5,),
+                  Container(
+                    margin: EdgeInsets.only(right: 196),
+                    child: Text(
+                      Constants.otpSecondMessage,
+                      style: TextStyle(
+                        fontSize: 12.0,
+                        fontWeight: FontWeight.w400,
+                        color: Color(0xff545454),
+                        fontFamily: AppFonts.font,
+                      ),
                     ),
                   ),
-                  SizedBox(height: 25.0),
+                  SizedBox(height: 30.0),
                   // Use the OtpTextField widget here
-                  OtpTextField(controllers: _otpControllers),
-                  SizedBox(height: 25.0),
+                  Container(
+                    margin: EdgeInsets.only(right: 70),
+                    child: OtpTextField(controllers: _otpControllers)),
+                  SizedBox(height: 35.0),
 
 Row(
   mainAxisAlignment: MainAxisAlignment.start,
@@ -112,7 +125,7 @@ Row(
       child: ResendButton(horizontalMargin: screenWidth * 0.05)),
   ],
 ),
-
+SizedBox(height: 15,),
                   // Continue Button
                   OtpPageButton(
                       //  onPressed: _submitOtp,

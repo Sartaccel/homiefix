@@ -14,8 +14,8 @@ class Name extends StatelessWidget {
     return Text(
       name,
       style: GoogleFonts.figtree(
-        fontSize: screenWidth * 0.045, 
-        fontWeight: FontWeight.w500,
+        fontSize: 16, 
+        fontWeight: FontWeight.w400,
         color: AppColors.username,
       ),
     );

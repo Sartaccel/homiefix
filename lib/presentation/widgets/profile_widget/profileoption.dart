@@ -21,6 +21,7 @@ class ProfileOption extends StatelessWidget {
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     return ListTile(
+      visualDensity: VisualDensity(vertical: -1.5),
       leading: Padding(
         padding: EdgeInsets.only(right: screenWidth * 0.03),  
         child: SvgPicture.asset(image, width: screenWidth * 0.05, height: screenWidth * 0.05),
@@ -28,31 +29,34 @@ class ProfileOption extends StatelessWidget {
       title: Text(
         title,
         style: GoogleFonts.figtree(
-          fontSize: screenWidth * 0.04,  
+          fontSize: 14,
+          fontWeight: FontWeight.w400,  
           color: AppColors.head,
         ),
       ),
       subtitle: Text(
         subtitle,
         style: GoogleFonts.figtree(
-          fontSize: screenWidth * 0.035,  
+          fontSize: 12,  
           color: AppColors.info,
         ),
         overflow: TextOverflow.ellipsis,
         maxLines: 1,
       ),
       trailing: Container(
-        width: screenWidth * 0.08,  
-        alignment: Alignment.centerRight, 
-        child: Transform.scale(
-          scale: 0.7, 
-          child: Icon(
-            Icons.arrow_forward_ios,
-            color: AppColors.arrow_forward_ios,
-            size: screenWidth * 0.05,  
-          ),
-        ),
-      ),
+  width: screenWidth * 0.12, // Increased the width of the trailing Container
+  alignment: Alignment.centerRight, 
+  padding: EdgeInsets.only(right: screenWidth * 0.00), // Added padding for extra spacing
+  child: Transform.scale(
+    scale: 0.7, 
+    child: Icon(
+      Icons.arrow_forward_ios,
+      color: AppColors.arrow_forward_ios, 
+      size: screenWidth * 0.05,
+    ),
+  ),
+),
+
       onTap: onTap,
     );
   }

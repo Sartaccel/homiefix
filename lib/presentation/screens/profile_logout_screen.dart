@@ -1,24 +1,41 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/gestures.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:homiefix_application/presentation/constants/icons.dart';
 import 'package:homiefix_application/presentation/constants/static.constants.dart';
 import 'package:homiefix_application/presentation/screens/login_screen.dart';
-import 'package:homiefix_application/presentation/screens/profile_logout_screen.dart';
+import 'package:homiefix_application/presentation/screens/map_screen.dart';
+import 'package:homiefix_application/presentation/screens/otp_entering.dart';
 import 'package:homiefix_application/presentation/themes/colors.dart';
+import 'package:homiefix_application/presentation/themes/fonts.dart';
 import 'package:homiefix_application/presentation/widgets/custom_button.dart';
 import 'package:homiefix_application/presentation/widgets/profile_widget/location.dart';
 import 'package:homiefix_application/presentation/widgets/profile_widget/profile_pic.dart';
 import 'package:homiefix_application/presentation/widgets/profile_widget/profileoption.dart';
 import 'package:homiefix_application/presentation/widgets/profile_widget/referbox.dart';
 import 'package:homiefix_application/presentation/widgets/profile_widget/username.dart';
+import 'otp_success.dart'; // Import the OtpSuccess page
 
-class ProfileScreen extends StatefulWidget {
-  const ProfileScreen({super.key});
-
+class ProfileLogoutScreen extends StatefulWidget {
   @override
-  State<ProfileScreen> createState() => _ProfileScreenState();
+  _ProfileLogoutScreenState createState() => _ProfileLogoutScreenState();
 }
 
-class _ProfileScreenState extends State<ProfileScreen> {
+class _ProfileLogoutScreenState extends State<ProfileLogoutScreen> {
+  final List<TextEditingController> _otpControllers =
+      List.generate(4, (index) => TextEditingController());
+
+  void _submitOtp() {
+    final otp = _otpControllers.map((controller) => controller.text).join();
+    print('OTP entered: $otp');
+
+    // Navigate to OtpSuccess page
+    Navigator.push(
+      context, 
+      MaterialPageRoute(builder: (context) => OtpEntering()),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
@@ -54,7 +71,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     ),
                   ],
                 ),
-                
                 Divider(
                   color: AppColors.devider,
                   thickness: 1,
@@ -119,15 +135,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   margin: EdgeInsets.only(right: 5),
                   child: Referbox()),
                 SizedBox(height: screenSize.width * 0.05),
-                SignInAccountButton(onPressed: () {
+                LogoutButton(onPressed: () {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
                             builder: (context) =>
-                                ProfileLogoutScreen(), // Redirect to OTP page
+                                SignIn(), // Redirect to OTP page
                           ),
                         );
-                        print("Sign in account button pressed");
+                        print("Logout button pressed");
                       })
               ],
             ),

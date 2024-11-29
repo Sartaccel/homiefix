@@ -14,7 +14,7 @@ class Location extends StatelessWidget {
     return Text(
       location, 
       style: GoogleFonts.figtree(
-        fontSize: screenWidth * 0.04, 
+        fontSize: 14,
         fontWeight: FontWeight.w400,
         color: AppColors.location,
       ),

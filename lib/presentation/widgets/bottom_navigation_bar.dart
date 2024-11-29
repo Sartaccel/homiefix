@@ -65,7 +65,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
                 bottomNavigationBarTheme: BottomNavigationBarThemeData(
                   selectedItemColor: AppColors.BottomNavbarIconSelected,
                   unselectedItemColor: AppColors.BottomNavbarIconUnselected,
-                  backgroundColor: AppColors.bottombackground,
+                  backgroundColor: const Color.fromARGB(255, 255, 255, 255),
                   type: BottomNavigationBarType.fixed,
                 ),
               ),

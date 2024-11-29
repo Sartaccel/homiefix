@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:homiefix_application/presentation/constants/static.constants.dart';
+import 'package:homiefix_application/presentation/screens/map_screen.dart';
 import 'package:homiefix_application/presentation/screens/otp_entering.dart';
 import 'package:homiefix_application/presentation/widgets/animation.dart';
 import 'package:homiefix_application/presentation/widgets/custom_button.dart';
@@ -46,17 +47,25 @@ class _SignInState extends State<SignIn> {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       SkipButton(onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                InitialMapPage(), // Redirect to OTP page
+                          ),
+                        );
                         print("Skip button pressed");
                       })
                     ],
                   ),
                 ),
-                SizedBox(height: 40),
+                SizedBox(height: 35),
                 SvgPicture.asset(
                   "assets/images/login_logo.svg",
                   width: imageWidth,
                   height: imageHeight,
                 ),
+                SizedBox(height: 15,),
                 SvgPicture.asset(
                   "assets/images/login_image.svg",
                   width: imageWidth,
@@ -70,29 +79,32 @@ class _SignInState extends State<SignIn> {
               color: Colors.white,
               child: Column(
                 children: [
-                  SizedBox(height: 40),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        Constants.loginButtonText + Constants.signupButtonText,
-                        style: TextStyle(
-                          fontSize: 18.0,
-                          fontWeight: FontWeight.w500,
-                          color: Color(0xff333333),
-                          fontFamily: 'Figtree',
+                  SizedBox(height: 70),
+                  Container(
+                    margin: EdgeInsets.only(right: 240),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          Constants.loginButtonText + Constants.signupButtonText,
+                          style: TextStyle(
+                            fontSize: 16.0,
+                            fontWeight: FontWeight.w600,
+                            color: Color(0xff333333),
+                            fontFamily: 'Figtree',
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                   SizedBox(height: 16.0),
                   SignInTextField(
                     //  countryCodeController: _countryCodeController,
                     phoneNumberController: _phoneNumberController,
                   ),
-                  SizedBox(height: 45),
-                  TermsAndPrivacyText(horizontalMargin: screenWidth * 0.05),
-                  SizedBox(height: 15),
+                  SizedBox(height: 40,),
+                  TermsAndPrivacyText(horizontalMargin: screenWidth * 0.07),
+                  SizedBox(height: 8),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [

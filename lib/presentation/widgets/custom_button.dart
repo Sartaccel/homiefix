@@ -14,91 +14,23 @@ class SkipButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
       onPressed: onPressed,
-      child: Text(
-        Constants.skipButtonText,
-        style: TextStyle(
-          fontSize: 16,
-          fontFamily: AppFonts.font,
-          fontWeight: FontWeight.w400,
-          color: Colors.black,
-        ),
-      ),
-    );
-  }
-}
-
-class SignInTextField extends StatelessWidget {
-//  final TextEditingController countryCodeController;
-  final TextEditingController phoneNumberController;
-
-  const SignInTextField({
-    Key? key,
-   // required this.countryCodeController,
-    required this.phoneNumberController,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    double screenWidth = MediaQuery.of(context).size.width;
-
-    return Container(
-      width: screenWidth * 0.89, // Responsive width
-      height: 44, // Fixed height for input fields
-      padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 0),
-      decoration: BoxDecoration(
-        color: const Color(0xFFFCFCFC),
-        border: Border.all(color: Color(0xffD9D9D9), width: 1),
-        borderRadius: BorderRadius.circular(8),
-      ),
       child: Row(
         children: [
-          SizedBox(width: 5),
-          SizedBox(
-            width: screenWidth * 0.1, // Responsive width for country code
-            child: TextField(
-             // controller: countryCodeController,
-             // keyboardType: TextInputType.phone,
-              decoration: InputDecoration(
-                hintText: Constants.mobileNumberCountryCodeLabel,
-                hintStyle: TextStyle(
-                  color: Colors.black,
-                  fontSize: 14,
-                  fontWeight: FontWeight.w400,
-                  fontFamily: AppFonts.font,
-                ),
-                border: InputBorder.none,
-                contentPadding: EdgeInsets.symmetric(vertical: 13),
-              ),
-              enabled: false,
+          const  Text(Constants.skipButtonText,
+          style: TextStyle(
+              fontSize: 16,
+              fontFamily: AppFonts.font,
+              fontWeight: FontWeight.w400,
+              color: Colors.black,
             ),
           ),
-      //    SvgPicture.asset("assets/images/phone_textfield_arrow.svg"),
-          const SizedBox(width: 10),
-          VerticalDivider(
-            color: Colors.grey,
-            width: 1,
-            thickness: 1,
-            indent: 5,
-            endIndent: 5,
-          ),
-          const SizedBox(width: 10),
-          Flexible(
-            child: TextField(
-              controller: phoneNumberController,
-              keyboardType: TextInputType.phone,
-              maxLength: 10,
-              decoration: InputDecoration(
-                hintText: Constants.mobileNumberFieldLabel,
-                hintStyle: TextStyle(
-                  color: Color(0xff999999),
-                  fontSize: 14,
-                  fontWeight: FontWeight.w400,
-                  fontFamily: AppFonts.font,
-                ),
-                counterText: '',
-                border: InputBorder.none,
-                contentPadding: EdgeInsets.symmetric(vertical: 13),
-              ),
+          Text(
+            Constants.skipButtonArrow,
+            style: TextStyle(
+              fontSize: 16,
+              fontFamily: "Inter",
+              fontWeight: FontWeight.w400,
+              color: Colors.black,
             ),
           ),
         ],
@@ -106,6 +38,86 @@ class SignInTextField extends StatelessWidget {
     );
   }
 }
+
+  class SignInTextField extends StatelessWidget {
+  //  final TextEditingController countryCodeController;
+    final TextEditingController phoneNumberController;
+
+    const SignInTextField({
+      Key? key,
+    // required this.countryCodeController,
+      required this.phoneNumberController,
+    }) : super(key: key);
+
+    @override
+    Widget build(BuildContext context) {
+      double screenWidth = MediaQuery.of(context).size.width;
+
+      return Container(
+        width: screenWidth * 0.89, // Responsive width
+        height: 44, // Fixed height for input fields
+        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 0),
+        decoration: BoxDecoration(
+          color: const Color(0xFFFCFCFC),
+          border: Border.all(color: Color(0xffD9D9D9), width: 1),
+          borderRadius: BorderRadius.circular(8),
+        ),
+        child: Row(
+          children: [
+            SizedBox(width: 5),
+            SizedBox(
+              width: screenWidth * 0.1, // Responsive width for country code
+              child: TextField(
+              // controller: countryCodeController,
+              // keyboardType: TextInputType.phone,
+                decoration: InputDecoration(
+                  hintText: Constants.mobileNumberCountryCodeLabel,
+                  hintStyle: TextStyle(
+                    color: Colors.black,
+                    fontSize: 14,
+                    fontWeight: FontWeight.w400,
+                    fontFamily: AppFonts.font,
+                  ),
+                  border: InputBorder.none,
+                  contentPadding: EdgeInsets.symmetric(vertical: 13),
+                ),
+                enabled: false,
+              ),
+            ),
+        //    SvgPicture.asset("assets/images/phone_textfield_arrow.svg"),
+            const SizedBox(width: 10),
+            VerticalDivider(
+              color: Colors.grey,
+              width: 1,
+              thickness: 1,
+              indent: 5,
+              endIndent: 5,
+            ),
+            const SizedBox(width: 10),
+            Flexible(
+              child: TextField(
+                controller: phoneNumberController,
+                keyboardType: TextInputType.phone,
+                maxLength: 10,
+                decoration: InputDecoration(
+                  hintText: Constants.mobileNumberFieldLabel,
+                  hintStyle: TextStyle(
+                    color: Color(0xff999999),
+                    fontSize: 14,
+                    fontWeight: FontWeight.w400,
+                    fontFamily: AppFonts.font,
+                  ),
+                  counterText: '',
+                  border: InputBorder.none,
+                  contentPadding: EdgeInsets.symmetric(vertical: 13),
+                ),
+              ),
+            ),
+          ],
+        ),
+      );
+    }
+  }
 
 class SignInButton extends StatelessWidget {
   final VoidCallback onPressed;
@@ -120,11 +132,11 @@ class SignInButton extends StatelessWidget {
       onPressed: onPressed,
       child: const Text(
         Constants.loginButtonLabel,
-        style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
+        style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600, fontSize: 14, fontFamily: AppFonts.font),
       ),
       style: ElevatedButton.styleFrom(
         padding: EdgeInsets.symmetric(
-          horizontal: screenWidth * 0.35, // Dynamic padding
+          horizontal: screenWidth * 0.37, // Dynamic padding
           vertical: 12.0,
         ),
         textStyle: const TextStyle(fontSize: 18.0),
@@ -154,16 +166,16 @@ class TermsAndPrivacyText extends StatelessWidget {
           text: TextSpan(
             text: Constants.agreeText,
             style: const TextStyle(
-              fontSize: 15,
+              fontSize: 11,
               fontFamily: AppFonts.font,
               color: Color(0xff545454),
-              fontWeight: FontWeight.w400,
+              fontWeight: FontWeight.w500,
             ),
             children: [
               TextSpan(
                 text: Constants.termsOfUse,
                 style: const TextStyle(
-                  fontSize: 15,
+                  fontSize: 11,
                   fontFamily: AppFonts.font,
                   color: Color(0xff009980),
                   fontWeight: FontWeight.w500,
@@ -176,16 +188,16 @@ class TermsAndPrivacyText extends StatelessWidget {
               TextSpan(
                 text: Constants.agreeTextAnd,
                 style: const TextStyle(
-                  fontSize: 15,
+                  fontSize: 11,
                   fontFamily: AppFonts.font,
                   color: Color(0xff545454),
-                  fontWeight: FontWeight.w400,
+                  fontWeight: FontWeight.w500,
                 ),
               ),
               TextSpan(
                 text: Constants.privacyPolicy,
                 style: const TextStyle(
-                  fontSize: 15,
+                  fontSize: 11,
                   fontFamily: AppFonts.font,
                   color: Color(0xff009980),
                   fontWeight: FontWeight.w500,
@@ -212,15 +224,28 @@ class BackButtonWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
       onPressed: onPressed,
-      child: const Text(
-        Constants.backButtonText,
-        style: TextStyle(
-          fontSize: 16,
-          fontFamily: AppFonts.font,
-          fontWeight: FontWeight.w400,
-          color: Colors.black,
-        ),
+      child: Row(
+        children: [
+          const Text(
+            Constants.backButtonArrow,
+            style: TextStyle(
+              fontSize: 16,
+              fontFamily: "Inter",
+              fontWeight: FontWeight.w400,
+              color: Colors.black,
+            ),
+          ),
+          Text(Constants.backButtonText,
+          style: TextStyle(
+              fontSize: 16,
+              fontFamily: AppFonts.font,
+              fontWeight: FontWeight.w400,
+              color: Colors.black,
+            ),
+          )
+        ],
       ),
+      
     );
   }
 }
@@ -323,11 +348,11 @@ class OtpPageButton extends StatelessWidget {
       onPressed: onPressed,
       child: const Text(
         Constants.otpButtonLabel,
-        style: TextStyle(fontFamily: AppFonts.font ,color: Colors.white, fontWeight: FontWeight.w600),
+        style: TextStyle(fontFamily: AppFonts.font ,color: Colors.white, fontWeight: FontWeight.w600, fontSize: 14),
       ),
       style: ElevatedButton.styleFrom(
         padding: EdgeInsets.symmetric(
-          horizontal: screenWidth * 0.35, // Dynamic padding
+          horizontal: screenWidth * 0.37, // Dynamic padding
           vertical: 12.0,
         ),
         textStyle: const TextStyle(fontSize: 18.0),
@@ -509,6 +534,45 @@ class SignInAccountButton extends StatelessWidget {
         backgroundColor: Color(0xff009980),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8.0),
+        ),
+      ),
+    );
+  }
+}
+
+class LogoutButton extends StatelessWidget {
+  final VoidCallback onPressed;
+
+  const LogoutButton({Key? key, required this.onPressed}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+
+    return ElevatedButton(
+      onPressed: onPressed,
+      child: const Text(
+        Constants.logoutButtonLabel,
+        style: TextStyle(
+          color: Color(0xff636363),
+          fontWeight: FontWeight.w400,
+          fontSize: 14,
+          fontFamily: AppFonts.font,
+        ),
+      ),
+      style: ElevatedButton.styleFrom(
+        padding: EdgeInsets.symmetric(
+          horizontal: screenWidth * 0.37, // Dynamic padding
+          vertical: 12.0,
+        ),
+        textStyle: const TextStyle(fontSize: 18.0),
+        backgroundColor: Colors.white,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(8.0),
+          side: const BorderSide( // Add stroke color and width
+            color: Color(0xff4d4d4d), // Stroke color
+            width: 1.0,              // Stroke width
+          ),
         ),
       ),
     );

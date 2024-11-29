@@ -10,8 +10,10 @@ class Constants {
   static const String privacyPolicy = "Privacy Policy";
   static const String validMobileNumberMessage = "Please enter a valid mobile number";
   static const String loginButtonLabel="Continue";
-  static const String skipButtonText= "Skip ->";
-  static const String backButtonText= "<- Back";
+  static const String skipButtonText= "Skip ";
+  static const String skipButtonArrow= "->";
+  static const String backButtonText= " Back";
+  static const String backButtonArrow= "<-";
   static const String otpVerificationHeading="OTP Verification";
   static const String otpFirstMessage="We’ve sent an OTP to phoneNumber.";
   static const String otpSecondMessage="Enter the OTP code below.";
@@ -47,5 +49,6 @@ class Constants {
   static const String searchBar="Search";
   static const String settingstitleinfo="Notification, Language, Delete my account";
   static const String signInAccountLabel="Sign in";
+  static const String logoutButtonLabel="Logout";
 }
               
