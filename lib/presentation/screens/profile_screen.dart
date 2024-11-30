@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:homiefix_application/presentation/constants/icons.dart';
 import 'package:homiefix_application/presentation/constants/static.constants.dart';
 import 'package:homiefix_application/presentation/screens/login_screen.dart';
-import 'package:homiefix_application/presentation/screens/profile_logout_screen.dart';
+
+
 import 'package:homiefix_application/presentation/themes/colors.dart';
 import 'package:homiefix_application/presentation/widgets/custom_button.dart';
 import 'package:homiefix_application/presentation/widgets/profile_widget/location.dart';
@@ -124,7 +125,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           context,
                           MaterialPageRoute(
                             builder: (context) =>
-                                ProfileLogoutScreen(), // Redirect to OTP page
+                                SignIn() // Redirect to OTP page
                           ),
                         );
                        

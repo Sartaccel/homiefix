@@ -5,7 +5,9 @@ import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:homiefix_application/presentation/constants/static.constants.dart';
 import 'package:homiefix_application/presentation/screens/login_screen.dart';
+import 'package:homiefix_application/presentation/themes/colors.dart';
 import 'package:homiefix_application/presentation/themes/fonts.dart';
+import 'package:homiefix_application/presentation/widgets/custom_dialog.dart';
 
 class SkipButton extends StatelessWidget {
   final VoidCallback onPressed;
@@ -577,6 +579,217 @@ class LogoutButton extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+class CustomTextField extends StatelessWidget {
+  final TextEditingController controller;
+  final bool obscureText;
+  final TextCapitalization textCapitalization;
+  final TextInputType inputType;
+  final String hintText;
+  final VoidCallback onVerifyPressed;
+
+  const CustomTextField({
+    Key? key,
+    required this.controller,
+    this.obscureText = false,
+    this.textCapitalization = TextCapitalization.none,
+    required this.inputType,
+    required this.hintText,
+    required this.onVerifyPressed,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final double width = screenWidth * 0.87; // Responsive width based on screen size
+
+    return Container(
+      width: width,
+      height: 44, // Fixed height
+      margin: const EdgeInsets.only(bottom: 15),
+      child: TextField(
+        enabled: true,
+        controller: controller,
+        textCapitalization: textCapitalization,
+        maxLines: 1,
+        obscureText: obscureText,
+        keyboardType: inputType,
+        textAlign: TextAlign.start,
+        style: const TextStyle(
+          color: Colors.black,
+          fontSize: 16,
+        ),
+        decoration: InputDecoration(
+          isDense: true,
+          counterText: "",
+          hintText: hintText,
+          hintStyle: GoogleFonts.figtree(
+            color: AppColors.textfieldtext,
+            fontSize: 14,
+            fontWeight: FontWeight.w400,
+          ),
+          suffixIcon: TextButton(
+            onPressed: onVerifyPressed,
+            child: Text(
+              Constants.verify,
+              style: GoogleFonts.figtree(
+                fontSize: 14,
+                fontWeight: FontWeight.w400,
+                color: AppColors.Verify, // Make sure this color is defined
+              ),
+            ),
+          ),
+          border: const OutlineInputBorder(
+            borderSide: BorderSide(color: AppColors.borderfield),
+            borderRadius: BorderRadius.all(Radius.circular(10)),
+          ),
+          focusedBorder: const OutlineInputBorder(
+            borderSide: BorderSide(color: AppColors.borderfield),
+            borderRadius: BorderRadius.all(Radius.circular(10)),
+          ),
+          enabledBorder: const OutlineInputBorder(
+            borderSide: BorderSide(color: AppColors.borderfield),
+            borderRadius: BorderRadius.all(Radius.circular(10)),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+
+class CustomTextField1 extends StatelessWidget {
+  final TextEditingController controller;
+  final bool obscureText;
+  final TextCapitalization textCapitalization;
+  final TextInputType inputType;
+  final String hintText;
+
+  const CustomTextField1({
+    Key? key,
+    required this.controller,
+    this.obscureText = false,
+    this.textCapitalization = TextCapitalization.none,
+    required this.inputType,
+    required this.hintText,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final double width = screenWidth * 0.87; // Responsive width based on screen size
+
+    return Container(
+      width: width,
+      height: 44, // Fixed height
+      margin: const EdgeInsets.only(bottom: 15),
+      child: TextField(
+        enabled: true,
+        controller: controller,
+        textCapitalization: textCapitalization,
+        maxLines: 1,
+        obscureText: obscureText,
+        keyboardType: inputType,
+       
+        decoration: InputDecoration(
+          isDense: true,
+          counterText: "",
+          hintText: hintText,
+          hintStyle:GoogleFonts.figtree(
+            color: AppColors.textfieldtext,
+            fontSize: 14,
+            fontWeight: FontWeight.w400
+          ),
+          border: const OutlineInputBorder(
+            borderSide: BorderSide(color:AppColors.borderfield),
+            borderRadius: BorderRadius.all(Radius.circular(10)),
+          ),
+          focusedBorder: const OutlineInputBorder(
+            borderSide: BorderSide(color: AppColors.borderfield),
+            borderRadius: BorderRadius.all(Radius.circular(10)),
+          ),
+          enabledBorder: const OutlineInputBorder(
+            borderSide: BorderSide(color:AppColors.borderfield),
+            borderRadius: BorderRadius.all(Radius.circular(10)),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+
+class Updatebutton extends StatelessWidget {
+  final VoidCallback onPressed;
+
+  const Updatebutton({Key? key, required this.onPressed}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+
+    return SizedBox(
+      width: screenWidth * 0.87, // Responsive width based on screen size
+      height: 44, // Fixed height
+      child: ElevatedButton(
+        onPressed: () => _showCustomDialog(context),
+        child: const Text(
+          Constants.otpButtonLabel,
+          style: TextStyle(
+            fontFamily: AppFonts.font,
+            color: Colors.white,
+            fontWeight: FontWeight.w600,
+            fontSize: 14,
+          ),
+        ),
+        style: ElevatedButton.styleFrom(
+          padding: EdgeInsets.symmetric(vertical: 12.0),
+          textStyle: const TextStyle(fontSize: 18.0),
+          backgroundColor: Color(0xff009980),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8.0),
+          ),
+        ),
+      ),
+    );
+  }
+
+  void _showCustomDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return CustomDialogBox(
+          title: "Delete Changes?",
+          descriptions: 'Your changes won’t be saved. Do you want to\ndelete them anyway?',
+          deleteButtonText: 'Delete changes',
+          cancelButtonText: 'Go back',
+          onDeletePressed: () {
+            Navigator.of(context).pop(); 
+            onPressed();
+          },
+          onCancelPressed: () {
+            Navigator.of(context).pop();
+          }, onPressed: () {  },
+        );
+      },
     );
   }
 }

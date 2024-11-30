@@ -18,6 +18,16 @@ class _ProfileEditScreenState extends State<ProfileEditScreen> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _phoneNumberController = TextEditingController();
 
+  void _verifyEmail() {
+    // Add your verification logic here
+    print("Verify email button pressed!");
+  }
+
+  void _updateProfile() {
+    // Add your update profile logic here
+    print("Update profile button pressed!");
+  }
+
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
@@ -41,7 +51,7 @@ class _ProfileEditScreenState extends State<ProfileEditScreen> {
                         height: screenSize.width * 0.3,
                       ),
                       SizedBox(height: screenSize.width * 0.02),
-                      Name(name: ' Hi, Jijo'),
+                      Name(name: 'Hi, Jijo'),
                       Location(location: 'Kanyakumari'),
                     ],
                   ),
@@ -55,11 +65,10 @@ class _ProfileEditScreenState extends State<ProfileEditScreen> {
                   ),
                 ),
                 SizedBox(height: screenSize.width * 0.02),
-                CustomTextField(
+                CustomTextField1(
                   controller: _fullNameController,
-                  labelText: 'Enter your Name',
-                  
-                  inputType: TextInputType.name, 
+                  hintText: "Enter your Name",
+                  inputType: TextInputType.name,
                 ),
                 SizedBox(height: screenSize.width * 0.02),
                 Text(
@@ -72,10 +81,9 @@ class _ProfileEditScreenState extends State<ProfileEditScreen> {
                 SizedBox(height: screenSize.width * 0.02),
                 CustomTextField(
                   controller: _emailController,
-                  labelText: 'Enter your email',
+                  hintText: 'Enter your email',
                   inputType: TextInputType.emailAddress,
-                  
-                   
+                  onVerifyPressed: _verifyEmail, // Action for verify button on email
                 ),
                 SizedBox(height: screenSize.width * 0.02),
                 Text(
@@ -86,12 +94,11 @@ class _ProfileEditScreenState extends State<ProfileEditScreen> {
                   ),
                 ),
                 SizedBox(height: screenSize.width * 0.02),
-                SignInTextField1(
+                SignInTextField(
                   phoneNumberController: _phoneNumberController,
-                  
                 ),
                 SizedBox(height: screenSize.width * 0.1),
-                 updatebutton()
+                Updatebutton(onPressed: _updateProfile),
               ],
             ),
           ),
@@ -100,4 +107,3 @@ class _ProfileEditScreenState extends State<ProfileEditScreen> {
     );
   }
 }
-

@@ -48,14 +48,17 @@ class Constants {
   static const String cartNavi="Cart";
   static const String profileNavi = "Profile";
   static const String searchBar="Search";
- 
   static const String signInAccountLabel="Sign in";
   static const String logoutButtonLabel="Logout";
+  // ignore: constant_identifier_names
   static const String SignInButtontext="Sign in";
   static const String fullname ="Full Name";
   static const String emailaddress="Email Address";
   static const String phoneNumber="Phone Number";
   static const String update='Update';
+  static const String verify= 'Verify';
+  static const String Deletemsg = 'Your changes won’t be saved. Do you want to\n delete them anyway?';
+
 }
 
               

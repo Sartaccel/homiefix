@@ -3,7 +3,7 @@ class AppIcons {
   static const String homeactive ="assets/icons/homeavtive.svg";
   static const String cart ="assets/icons/Cart.svg";
   static const String activecart="assets/icons/cart active.svg";
-  static const String profile = "assets/icons/Profile icon.svg";
+  static const String profile = "assets/icons/Profile.svg";
   static const String activeprofile = "assets/icons/Profile active.svg";
   static const String calender ="assets/images/Calendar Clock.svg";
   static const String contact ="assets/images/contact.svg";
