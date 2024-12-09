@@ -583,21 +583,6 @@ class LogoutButton extends StatelessWidget {
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 class CustomTextField extends StatelessWidget {
   final TextEditingController controller;
   final bool obscureText;

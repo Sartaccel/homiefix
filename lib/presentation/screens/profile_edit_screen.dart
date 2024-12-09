@@ -19,12 +19,10 @@ class _ProfileEditScreenState extends State<ProfileEditScreen> {
   final TextEditingController _phoneNumberController = TextEditingController();
 
   void _verifyEmail() {
-    // Add your verification logic here
     print("Verify email button pressed!");
   }
 
   void _updateProfile() {
-    // Add your update profile logic here
     print("Update profile button pressed!");
   }
 
@@ -36,71 +34,79 @@ class _ProfileEditScreenState extends State<ProfileEditScreen> {
     return SafeArea(
       child: Scaffold(
         backgroundColor: AppColors.backgroundColor,
-        body: SingleChildScrollView(
-          child: Padding(
-            padding: EdgeInsets.all(paddingValue),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Center(
-                  child: Column(
-                    children: [
-                      SizedBox(height: screenSize.width * 0.1),
-                      ProfilePic(
-                        width: screenSize.width * 0.3,
-                        height: screenSize.width * 0.3,
-                      ),
-                      SizedBox(height: screenSize.width * 0.02),
-                      Name(name: 'Hi, Jijo'),
-                      Location(location: 'Kanyakumari'),
-                    ],
-                  ),
+        body: Padding(
+          padding: EdgeInsets.all(paddingValue),
+           
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+               SizedBox(height: screenSize.height * 0.06),
+              IconButton(
+                icon: Icon(Icons.arrow_back_ios, color: AppColors.goback,size: 18,),
+                onPressed: () {
+                  Navigator.pop(context); 
+                },
+              ),
+              
+              Center(
+                child: ProfilePic(
+                  width: screenSize.width * 0.3,
+                  height: screenSize.width * 0.3,
                 ),
-                SizedBox(height: screenSize.width * 0.1),
-                Text(
-                  Constants.fullname,
-                  style: TextStyle(
-                    fontSize: screenSize.width * 0.03,
-                    color: AppColors.fullname,
-                  ),
+              ),
+              SizedBox(height: screenSize.width * 0.02),
+              Center(
+                child: Column(
+                  children: [
+                    Name(name: 'Hi, Jijo'),
+                    Location(location: 'Kanyakumari'),
+                  ],
                 ),
-                SizedBox(height: screenSize.width * 0.02),
-                CustomTextField1(
-                  controller: _fullNameController,
-                  hintText: "Enter your Name",
-                  inputType: TextInputType.name,
+              ),
+              SizedBox(height: screenSize.width * 0.1),
+              Text(
+                Constants.fullname,
+                style: TextStyle(
+                  fontSize: screenSize.width * 0.03,
+                  color: AppColors.fullname,
                 ),
-                SizedBox(height: screenSize.width * 0.02),
-                Text(
-                  Constants.emailaddress,
-                  style: TextStyle(
-                    fontSize: screenSize.width * 0.03,
-                    color: AppColors.fullname,
-                  ),
+              ),
+              SizedBox(height: screenSize.width * 0.02),
+              CustomTextField1(
+                controller: _fullNameController,
+                hintText: "Enter your Name",
+                inputType: TextInputType.name,
+              ),
+              SizedBox(height: screenSize.width * 0.02),
+              Text(
+                Constants.emailaddress,
+                style: TextStyle(
+                  fontSize: screenSize.width * 0.03,
+                  color: AppColors.fullname,
                 ),
-                SizedBox(height: screenSize.width * 0.02),
-                CustomTextField(
-                  controller: _emailController,
-                  hintText: 'Enter your email',
-                  inputType: TextInputType.emailAddress,
-                  onVerifyPressed: _verifyEmail, // Action for verify button on email
+              ),
+              SizedBox(height: screenSize.width * 0.02),
+              CustomTextField(
+                controller: _emailController,
+                hintText: 'Enter your email',
+                inputType: TextInputType.emailAddress,
+                onVerifyPressed: _verifyEmail,
+              ),
+              SizedBox(height: screenSize.width * 0.02),
+              Text(
+                Constants.phoneNumber,
+                style: TextStyle(
+                  fontSize: screenSize.width * 0.03,
+                  color: AppColors.fullname,
                 ),
-                SizedBox(height: screenSize.width * 0.02),
-                Text(
-                  Constants.phoneNumber,
-                  style: TextStyle(
-                    fontSize: screenSize.width * 0.03,
-                    color: AppColors.fullname,
-                  ),
-                ),
-                SizedBox(height: screenSize.width * 0.02),
-                SignInTextField(
-                  phoneNumberController: _phoneNumberController,
-                ),
-                SizedBox(height: screenSize.width * 0.1),
-                Updatebutton(onPressed: _updateProfile),
-              ],
-            ),
+              ),
+              SizedBox(height: screenSize.width * 0.02),
+              SignInTextField(
+                phoneNumberController: _phoneNumberController,
+              ),
+              SizedBox(height: screenSize.width * 0.1),
+              Updatebutton(onPressed: _updateProfile),
+            ],
           ),
         ),
       ),

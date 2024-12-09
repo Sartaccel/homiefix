@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:homiefix_application/presentation/constants/static.constants.dart';
 import 'package:homiefix_application/presentation/screens/map_screen.dart';
 import 'package:homiefix_application/presentation/screens/otp_entering.dart';
 import 'package:homiefix_application/presentation/widgets/custom_button.dart';
-import 'otp_success.dart'; // Import the OtpSuccess page
+
 
 class Account extends StatefulWidget {
   @override
@@ -20,7 +19,7 @@ class _AccountState extends State<Account> {
     final otp = _otpControllers.map((controller) => controller.text).join();
     print('OTP entered: $otp');
 
-    // Navigate to OtpSuccess page
+    
     Navigator.push(
       context, 
       MaterialPageRoute(builder: (context) => OtpEntering()),
@@ -93,10 +92,10 @@ class _AccountState extends State<Account> {
                     ),
                   ),
                   SizedBox(height: 25.0),
-                  // Use the OtpTextField widget here
+                  
                   OtpTextField(controllers: _otpControllers),
                   SizedBox(height: 25.0),
-                  // Continue Button
+                  
                   OtpPageButton(
                       //  onPressed: _submitOtp,
                       onPressed: () {

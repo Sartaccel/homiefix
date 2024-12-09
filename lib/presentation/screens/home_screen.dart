@@ -6,7 +6,7 @@ import 'package:homiefix_application/presentation/screens/map_screen.dart';
 import 'package:homiefix_application/presentation/screens/otp_entering.dart';
 import 'package:homiefix_application/presentation/themes/fonts.dart';
 import 'package:homiefix_application/presentation/widgets/custom_button.dart';
-import 'otp_success.dart'; // Import the OtpSuccess page
+import 'otp_success.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});

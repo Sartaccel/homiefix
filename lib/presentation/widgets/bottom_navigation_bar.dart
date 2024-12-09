@@ -32,6 +32,14 @@ class _BottomNavigationState extends State<BottomNavigation> {
 
   @override
   Widget build(BuildContext context) {
+    // Determine the height for the bottom navigation bar based on screen size
+    double navBarHeight = 70.0; // default height
+    double screenHeight = MediaQuery.of(context).size.height;
+
+    if (screenHeight > 800) {
+      navBarHeight = 80.0; // Increase height for larger screens
+    }
+
     return BlocProvider(
       create: (_) => NavigationCubit(),
       child: BlocBuilder<NavigationCubit, int>(
@@ -47,33 +55,42 @@ class _BottomNavigationState extends State<BottomNavigation> {
                 ProfileScreen(),
               ],
             ),
-            bottomNavigationBar: BottomNavigationBar(
-              currentIndex: selectedIndex,
-              onTap: (index) {
-                context.read<NavigationCubit>().selectPage(index);
-                _pageController.jumpToPage(index);
-              },
-              items: [
-                _buildBottomNavigationBarItem(
-                  icon: AppIcons.home,
-                  activeIcon: AppIcons.homeactive,
-                  label: Constants.homeNavi,
+            bottomNavigationBar: Theme(
+              data: Theme.of(context).copyWith(
+                splashFactory: InkRipple.splashFactory, // Use square splash
+                highlightColor: Colors.transparent, // Disable highlight effect
+              ),
+              child: Container(
+                height: navBarHeight, // Set the height dynamically
+                child: BottomNavigationBar(
+                  currentIndex: selectedIndex,
+                  onTap: (index) {
+                    context.read<NavigationCubit>().selectPage(index);
+                    _pageController.jumpToPage(index);
+                  },
+                  items: [
+                    _buildBottomNavigationBarItem(
+                      icon: AppIcons.home,
+                      activeIcon: AppIcons.homeactive,
+                      label: Constants.homeNavi,
+                    ),
+                    _buildBottomNavigationBarItem(
+                      icon: AppIcons.cart,
+                      activeIcon: AppIcons.activecart,
+                      label: Constants.cartNavi,
+                    ),
+                    _buildBottomNavigationBarItem(
+                      icon: AppIcons.profile,
+                      activeIcon: AppIcons.activeprofile,
+                      label: Constants.profileNavi,
+                    ),
+                  ],
+                  selectedItemColor: AppColors.BottomNavbarIconSelected,
+                  unselectedItemColor: AppColors.BottomNavbarIconUnselected,
+                  backgroundColor: Colors.white,
+                  type: BottomNavigationBarType.fixed,
                 ),
-                _buildBottomNavigationBarItem(
-                  icon: AppIcons.cart,
-                  activeIcon: AppIcons.activecart,
-                  label: Constants.cartNavi,
-                ),
-                _buildBottomNavigationBarItem(
-                  icon: AppIcons.profile,
-                  activeIcon: AppIcons.activeprofile,
-                  label: Constants.profileNavi,
-                ),
-              ],
-              selectedItemColor: AppColors.BottomNavbarIconSelected,
-              unselectedItemColor: AppColors.BottomNavbarIconUnselected,
-              backgroundColor: Colors.white,
-              type: BottomNavigationBarType.fixed,
+              ),
             ),
           );
         },
