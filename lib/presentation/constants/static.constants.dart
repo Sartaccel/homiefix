@@ -50,5 +50,7 @@ class Constants {
   static const String settingstitleinfo="Notification, Language, Delete my account";
   static const String signInAccountLabel="Sign in";
   static const String logoutButtonLabel="Logout";
+  static const String addnewaddresstitle="Add New Address";
+
 }
               

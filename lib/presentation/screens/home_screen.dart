@@ -10,7 +10,7 @@ import 'otp_success.dart'; // Import the OtpSuccess page
 
 class HomeScreen extends StatefulWidget {
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  _HomeScreenState createState() => _HomeScreenState();  
 }
 
 class _HomeScreenState extends State<HomeScreen> {
@@ -41,9 +41,7 @@ class _HomeScreenState extends State<HomeScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-           
-           
-            
+          
           ],
         ),
       ),

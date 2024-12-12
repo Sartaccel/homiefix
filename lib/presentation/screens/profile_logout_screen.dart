@@ -4,6 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:homiefix_application/presentation/constants/icons.dart';
 import 'package:homiefix_application/presentation/constants/static.constants.dart';
 import 'package:homiefix_application/presentation/screens/login_screen.dart';
+import 'package:homiefix_application/presentation/screens/manage_address.dart';
 import 'package:homiefix_application/presentation/screens/map_screen.dart';
 import 'package:homiefix_application/presentation/screens/otp_entering.dart';
 import 'package:homiefix_application/presentation/themes/colors.dart';
@@ -69,6 +70,19 @@ class _ProfileLogoutScreenState extends State<ProfileLogoutScreen> {
                         Location(location: Constants.location),
                       ],
                     ),
+                    SizedBox(width: 165,),
+                    InkWell(
+  onTap: () {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => SignIn()),
+    );
+  },
+  child: SvgPicture.asset(
+    "assets/icons/account edit icon.svg",
+  ),
+),
+
                   ],
                 ),
                 Divider(
@@ -92,8 +106,11 @@ class _ProfileLogoutScreenState extends State<ProfileLogoutScreen> {
                   title: Constants.manageAddressTitle,
                   subtitle: Constants.manageAddressInfo,   
                   onTap: () {
-                    
-                  },
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => ManageAddress()),
+    );
+  },
                 ),
                 
                 ProfileOption(
