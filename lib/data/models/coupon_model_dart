@@ -1,0 +1,33 @@
+class Coupon {
+  final String titleLine1;
+  final String titleLine2;
+  final String description;
+  final String expirationDate; // Add expiration date
+
+  Coupon({
+    required this.titleLine1,
+    required this.titleLine2,
+    required this.description,
+    required this.expirationDate, // Make sure to pass the expiration date
+  });
+
+  // Factory constructor to create Coupon from JSON (Map)
+  factory Coupon.fromJson(Map<String, dynamic> json) {
+    return Coupon(
+      titleLine1: json['title_line_1'],
+      titleLine2: json['title_line_2'],
+      description: json['description'],
+      expirationDate: json['expiration_date'], // Fix typo in key name
+    );
+  }
+
+  // Method to convert Coupon back to JSON (if you need to send it to the API)
+  Map<String, dynamic> toJson() {
+    return {
+      'title_line_1': titleLine1,
+      'title_line_2': titleLine2,
+      'description': description,
+      'expiration_date': expirationDate, // Include expiration date when converting to JSON
+    };
+  }
+}

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:homiefix_application/presentation/screens/profile_edit_screen.dart';
-import 'package:homiefix_application/presentation/widgets/bottom_navigation_bar.dart';
+import 'package:homiefix_application/presentation/screens/coupons_screen.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -16,9 +16,9 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
-     home: BottomNavigation()
+     home: CouponsScreen()
     );
   }
 }

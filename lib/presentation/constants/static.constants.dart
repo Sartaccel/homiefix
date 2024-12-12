@@ -57,7 +57,10 @@ class Constants {
   static const String phoneNumber="Phone Number";
   static const String update='Update';
   static const String verify= 'Verify';
+  // ignore: constant_identifier_names
   static const String Deletemsg = 'Your changes won’t be saved. Do you want to\n delete them anyway?';
+  static const String coupons = 'Coupons';
+  
 
 }
 

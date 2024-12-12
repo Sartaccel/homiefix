@@ -28,6 +28,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     return SafeArea(
       child: Scaffold(
         backgroundColor: AppColors.backgroundColor,
+        
         body: SingleChildScrollView(
           child: Padding(
             padding: EdgeInsets.all(paddingValue),
@@ -60,7 +61,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   color: AppColors.devider,
                   thickness: 1,
                 ),
-               // SizedBox(height: screenSize.width * 0.010),
+              
 
                 
                 ProfileOption(

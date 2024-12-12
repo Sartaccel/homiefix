@@ -43,6 +43,8 @@ static const Color Verify=Color(0xFF009980);
 static const Color descriptions=Color(0XFF4C4C4C);
 static const Color goback =Color(0xFF333333);
 static const Color delitechanges =Color(0xFF009980);
+static const Color couponshead=Color(0xFF1F1F1F);
+static const Color cuponsbackground =Color(0XFFF7F7F7);
 
 
 
