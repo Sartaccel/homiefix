@@ -12,6 +12,13 @@ class AppIcons {
   static const String location= "assets/images/location.svg";
   static const String settings="assets/images/Settings.svg";
   static const String accountedit="assets/images/account edit icon.svg";
+  static const String contactUs="assets/icons/contact us.svg";
+  static const String phoner="assets/icons/phone icon.svg";
+  static const String mail="assets/icons/mail.svg";
+ static const String location2="assets/icons/location.svg";
+
+
+
   
   
 }

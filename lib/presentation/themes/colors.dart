@@ -45,6 +45,10 @@ static const Color goback =Color(0xFF333333);
 static const Color delitechanges =Color(0xFF009980);
 static const Color couponshead=Color(0xFF1F1F1F);
 static const Color cuponsbackground =Color(0XFFF7F7F7);
+static const Color cardbackround =Color(0XFFFFFFFF);
+static const Color subhead=Color(0xFF333333);
+static const Color subheadfield =Color(0XFFB2B2B2);
+static const Color location1=Color(0XFF009980);
 
 
 

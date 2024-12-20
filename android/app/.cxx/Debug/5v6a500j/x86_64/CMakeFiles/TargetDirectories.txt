@@ -1,0 +1,2 @@
+C:/Users/jijon/Downloads/homiefix/android/app/.cxx/Debug/5v6a500j/x86_64/CMakeFiles/edit_cache.dir
+C:/Users/jijon/Downloads/homiefix/android/app/.cxx/Debug/5v6a500j/x86_64/CMakeFiles/rebuild_cache.dir

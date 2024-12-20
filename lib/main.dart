@@ -1,26 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:homiefix_application/presentation/screens/coupons_screen.dart';
+import 'package:homiefix_application/presentation/screens/addnew_screen%20.dart';
+
+
+
 
 
 void main() {
   runApp(const MyApp());
 }
-class MyApp extends StatefulWidget {
+
+class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
-  State<MyApp> createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-
-  @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-     home: CouponsScreen()
+      home:AddnewScreen()
     );
   }
 }
-
-

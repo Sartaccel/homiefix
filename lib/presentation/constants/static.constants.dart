@@ -60,7 +60,22 @@ class Constants {
   // ignore: constant_identifier_names
   static const String Deletemsg = 'Your changes won’t be saved. Do you want to\n delete them anyway?';
   static const String coupons = 'Coupons';
-  
+  static const String contactUs = 'Contact Us';
+  static const String helptext ='How can we help?';
+  static const String phone="Phone call";
+  static const String mail = "Mail";
+  static const String addnewaddress = 'Add new address';
+   static const String address  = 'Type of address';
+    static const String firstbox = 'Eg; Home, Office';
+    static const String currentlocation = 'Current Location';
+     static const String homeaddress = 'House No/ Building Name';
+     static const String town = 'Locality / Town';
+      static const String nearby = 'Nearby Landmark';
+        static const String district = 'District';
+         static const String state = 'State';
+
+     
+    
 
 }
 

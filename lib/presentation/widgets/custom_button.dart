@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:homiefix_application/presentation/constants/icons.dart';
 import 'package:homiefix_application/presentation/constants/static.constants.dart';
 import 'package:homiefix_application/presentation/screens/login_screen.dart';
 import 'package:homiefix_application/presentation/themes/colors.dart';
@@ -775,6 +776,205 @@ class Updatebutton extends StatelessWidget {
           }, onPressed: () {  },
         );
       },
+    );
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+class CustomTextFieldContainer extends StatelessWidget {
+  final String hintText;
+
+  const CustomTextFieldContainer({required this.hintText, super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    // Using MediaQuery to make the width responsive
+    final double screenWidth = MediaQuery.of(context).size.width;
+    final double containerWidth = screenWidth * 0.44; // Adjust width based on screen size
+
+    return Container(
+      width: containerWidth, // Dynamically set width
+      height: 44,
+      decoration: BoxDecoration(
+        color: AppColors.bottombackground,
+        borderRadius: BorderRadius.circular(8),
+        border: Border.all(color: AppColors.borderfield),
+      ),
+      child: TextField(
+        textAlignVertical: TextAlignVertical.center,
+        decoration: InputDecoration(
+          contentPadding: const EdgeInsets.symmetric(horizontal: 10, vertical: 12),
+          border: InputBorder.none,
+          hintText: hintText,
+          hintStyle: GoogleFonts.figtree(
+            color: AppColors.subheadfield,
+            fontSize: 14,
+            fontWeight: FontWeight.w400,
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class CustomContainer extends StatelessWidget {
+  const CustomContainer({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    // Using MediaQuery to adjust the width dynamically
+    final double screenWidth = MediaQuery.of(context).size.width;
+    final double containerWidth = screenWidth * 0.44; // Adjust width to 60% of screen width
+
+    return Container(
+      width: containerWidth, 
+      height: 44,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(8),
+        border: Border.all(color: AppColors.location1),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          SvgPicture.asset(
+            AppIcons.location2,
+            width: 20,
+            height: 20,
+          ),
+          const SizedBox(width: 8),
+          Text(
+            Constants.currentlocation,
+            style: GoogleFonts.figtree(
+              fontSize: 14,
+              fontWeight: FontWeight.w600,
+              color: AppColors.location1,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class ResponsiveSignInField extends StatelessWidget {
+  final TextEditingController phoneNumberController;
+
+  const ResponsiveSignInField({
+    Key? key,
+    required this.phoneNumberController,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    // Using MediaQuery to adjust the width dynamically
+    final double screenWidth = MediaQuery.of(context).size.width;
+    final double containerWidth = screenWidth < 200 ? 159 : screenWidth * 0.44; // Responsive width for smaller screens
+
+    return Container(
+      width: containerWidth, // Dynamically set width
+      height: 44,
+      padding: const EdgeInsets.symmetric(horizontal: 2, vertical: 0),
+      decoration: BoxDecoration(
+        color: const Color(0xFFFCFCFC),
+        border: Border.all(color: const Color(0xffD9D9D9), width: 1),
+        borderRadius: BorderRadius.circular(8),
+      ),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start, 
+        
+        children: [
+        
+          SizedBox(
+            width: 30, // Fixed width to keep '+91' visible
+            child: TextField(
+              decoration: InputDecoration(
+                hintText: '+91',
+                hintStyle: GoogleFonts.figtree(
+                  color: Colors.black,
+                  fontSize: 14,
+                  fontWeight: FontWeight.w400,
+                ),
+               
+              ),
+              enabled: false,
+            ),
+          ),
+          const SizedBox(width: 10),
+          const VerticalDivider(
+            color: Colors.grey,
+            width: 1,
+            thickness: 1,
+            indent: 5,
+            endIndent: 5,
+          ),
+          const SizedBox(width: 10),
+          
+          Flexible(
+            child: TextField(
+              controller: phoneNumberController,
+              keyboardType: TextInputType.phone,
+              maxLength: 10,
+              decoration: InputDecoration(
+                hintText: 'Mobile Number',
+                hintStyle: GoogleFonts.figtree(
+                  color: const Color(0xff999999),
+                  fontSize: 14,
+                  fontWeight: FontWeight.w400,
+                ),
+                counterText: '', 
+                border: InputBorder.none,
+               
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+
+class ResponsiveTextFieldContainer extends StatelessWidget {
+  final String hintText;
+
+  const ResponsiveTextFieldContainer({required this.hintText, super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final double screenWidth = MediaQuery.of(context).size.width;
+
+    return Container(
+      width: screenWidth, // Use full screen width
+      height: 44,
+      decoration: BoxDecoration(
+        color: AppColors.bottombackground,
+        borderRadius: BorderRadius.circular(8),
+        border: Border.all(color: AppColors.borderfield),
+      ),
+      child: TextField(
+        textAlignVertical: TextAlignVertical.center,
+        decoration: InputDecoration(
+          contentPadding: const EdgeInsets.symmetric(horizontal: 10, vertical: 12),
+          border: InputBorder.none,
+          hintText: hintText,
+          hintStyle: GoogleFonts.figtree(
+            color: AppColors.subheadfield,
+            fontSize: 14,
+            fontWeight: FontWeight.w400,
+            
+          ),
+        ),
+      ),
     );
   }
 }
