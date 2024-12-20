@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:homiefix_application/data/repositories/auth_repository.dart';
 import 'package:homiefix_application/presentation/constants/static.constants.dart';
 import 'package:homiefix_application/presentation/screens/map_screen.dart';
 import 'package:homiefix_application/presentation/screens/otp_entering.dart';
@@ -16,6 +17,39 @@ class _SignInState extends State<SignIn> {
   // Create a controller for the text field
   final TextEditingController _countryCodeController = TextEditingController();
   final TextEditingController _phoneNumberController = TextEditingController();
+
+
+
+final AuthRepository _authRepository = AuthRepository();
+
+Future<void> _sendOtp() async {
+  String phoneNumber = _phoneNumberController.text.trim();
+
+  if (phoneNumber.isEmpty || phoneNumber.length != 10) {
+    // Validate phone number
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text('Please enter a valid 10-digit phone number')),
+    );
+    return;
+  }
+
+  bool success = await _authRepository.sendOtp(phoneNumber);
+
+  if (success) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => OtpEntering(mobileNumber: '',)),
+    );
+  } else {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text('Failed to send OTP. Please try again.')),
+    );
+  }
+}
+
+
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -108,16 +142,44 @@ class _SignInState extends State<SignIn> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      SignInButton(onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) =>
-                                OtpEntering(), // Redirect to OTP page
-                          ),
-                        );
-                        print("Sign in button pressed");
-                      })
+                      SignInButton(onPressed: () async {
+  // Get the phone number from the TextField controller
+  String phoneNumber = _phoneNumberController.text.trim();
+
+  // Validate the phone number
+  if (phoneNumber.isEmpty || phoneNumber.length != 10) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text('Please enter a valid 10-digit phone number')),
+    );
+    return;
+  }
+
+  // Prefix the phone number with +91 and a space
+  String formattedPhoneNumber = '+91 $phoneNumber';
+
+  // Create an instance of AuthRepository
+  final AuthRepository authRepository = AuthRepository();
+
+  // Call the sendOtp method
+  bool success = await authRepository.sendOtp(formattedPhoneNumber);
+
+  if (success) {
+    // Navigate to the OtpEntering page on success
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => OtpEntering(mobileNumber: '',)),
+    );
+    print("Sign in button pressed and OTP sent successfully");
+  } else {
+    // Show error message on failure
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text('Failed to send OTP. Please try again.')),
+    );
+    print("Failed to send OTP");
+  }
+})
+
+
                     ],
                   ),
                 ],

@@ -4,6 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:homiefix_application/presentation/blocs/bottomnav/navigation.dart';
 import 'package:homiefix_application/presentation/constants/icons.dart';
 import 'package:homiefix_application/presentation/constants/static.constants.dart';
+import 'package:homiefix_application/presentation/screens/home_screen.dart';
 import 'package:homiefix_application/presentation/screens/profile_screen.dart';
 import 'package:homiefix_application/presentation/themes/colors.dart';
 
@@ -55,7 +56,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
               onPageChanged: (index) =>
                   context.read<NavigationCubit>().selectPage(index),
               children: const <Widget>[
-                Center(child: Text('Home')),
+                HomeScreen(),
                 Center(child: Text('Search')),
                 ProfileScreen()
               ],

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:homiefix_application/presentation/screens/home_appliance_service.dart';
+import 'package:homiefix_application/presentation/screens/home_appliances/ac_service.dart';
+import 'package:homiefix_application/presentation/screens/home_screen.dart';
 import 'package:homiefix_application/presentation/screens/login_screen.dart';
-import 'package:homiefix_application/presentation/widgets/bottom_navigation_bar.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +20,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       debugShowCheckedModeBanner: false,
-      home: SignIn(),
+      home: HomeScreen(),
     );
   }
 }

@@ -98,7 +98,7 @@ class SkipButton extends StatelessWidget {
               child: TextField(
                 controller: phoneNumberController,
                 keyboardType: TextInputType.phone,
-                maxLength: 10,
+                maxLength: 15,
                 decoration: InputDecoration(
                   hintText: Constants.mobileNumberFieldLabel,
                   hintStyle: TextStyle(
@@ -251,43 +251,40 @@ class BackButtonWidget extends StatelessWidget {
 }
 
 
+
+
+
 class OtpTextField extends StatelessWidget {
   final List<TextEditingController> controllers;
 
-  OtpTextField({Key? key, required this.controllers}) : super(key: key);
+  OtpTextField({required this.controllers});
 
   @override
   Widget build(BuildContext context) {
-    double screenWidth = MediaQuery.of(context).size.width;
-
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
-      children: List.generate(4, (index) {
+      children: List.generate(controllers.length, (index) {
         return Container(
-          margin: EdgeInsets.symmetric(horizontal: screenWidth * 0.02),
-          width: screenWidth * 0.14, // Responsive width
-          child: TextFormField(
+          width: 50,
+          margin: EdgeInsets.symmetric(horizontal: 5),
+          child: TextField(
             controller: controllers[index],
             keyboardType: TextInputType.number,
             textAlign: TextAlign.center,
             maxLength: 1,
-            style: TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.bold,
-            ),
+            onChanged: (value) {
+              if (value.isNotEmpty && index < controllers.length - 1) {
+                // Move to the next field when a digit is entered
+                FocusScope.of(context).nextFocus();
+              } else if (value.isEmpty && index > 0) {
+                // Move to the previous field when the digit is deleted
+                FocusScope.of(context).previousFocus();
+              }
+            },
             decoration: InputDecoration(
-              counterText: "",
+              counterText: '', // Hide the counter
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8),
-                borderSide: BorderSide(color: Color(0xffD9D9D9)),
-              ),
-              enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(8),
-                borderSide: BorderSide(color: Color(0xffD9D9D9)),
-              ),
-              focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(8),
-                borderSide: BorderSide(color: Color(0xffD9D9D9)),
               ),
             ),
           ),
@@ -296,6 +293,8 @@ class OtpTextField extends StatelessWidget {
     );
   }
 }
+
+
 
 class ResendButton extends StatelessWidget {
   final double horizontalMargin;
@@ -335,35 +334,46 @@ class ResendButton extends StatelessWidget {
 }
 
 
-class OtpPageButton extends StatelessWidget {
-  final VoidCallback onPressed;
 
-  const OtpPageButton({Key? key, required this.onPressed}) : super(key: key);
+
+class OtpPageButton extends StatelessWidget {
+  final VoidCallback? onPressed;
+  final bool isLoading;
+
+  OtpPageButton({required this.onPressed, this.isLoading = false});
 
   @override
   Widget build(BuildContext context) {
-    double screenWidth = MediaQuery.of(context).size.width;
-
     return ElevatedButton(
-      onPressed: onPressed,
-      child: const Text(
-        Constants.otpButtonLabel,
-        style: TextStyle(fontFamily: AppFonts.font ,color: Colors.white, fontWeight: FontWeight.w600, fontSize: 14),
-      ),
+      onPressed: isLoading ? null : onPressed,
       style: ElevatedButton.styleFrom(
-        padding: EdgeInsets.symmetric(
-          horizontal: screenWidth * 0.37, // Dynamic padding
-          vertical: 12.0,
-        ),
-        textStyle: const TextStyle(fontSize: 18.0),
-        backgroundColor: Color(0xff009980),
+        backgroundColor: Color(0xff333333), // Button color
+        padding: EdgeInsets.symmetric(horizontal: 100, vertical: 15),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8.0),
         ),
       ),
+      child: isLoading
+          ? SizedBox(
+              width: 20,
+              height: 20,
+              child: CircularProgressIndicator(
+                color: Colors.white,
+                strokeWidth: 2.0,
+              ),
+            )
+          : Text(
+              "Continue",
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
     );
   }
 }
+
 
 // class MapSearchBox extends StatelessWidget {
 //   final TextEditingController searchController;
@@ -578,3 +588,4 @@ class LogoutButton extends StatelessWidget {
     );
   }
 }
+

@@ -23,7 +23,7 @@ class _AccountState extends State<Account> {
     // Navigate to OtpSuccess page
     Navigator.push(
       context, 
-      MaterialPageRoute(builder: (context) => OtpEntering()),
+      MaterialPageRoute(builder: (context) => OtpEntering(mobileNumber: '',)),
     );
   }
 

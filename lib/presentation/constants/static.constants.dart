@@ -51,6 +51,8 @@ class Constants {
   static const String signInAccountLabel="Sign in";
   static const String logoutButtonLabel="Logout";
   static const String addnewaddresstitle="Add New Address";
+  static const String saveaccountbutton="Save";
+
 
 }
               

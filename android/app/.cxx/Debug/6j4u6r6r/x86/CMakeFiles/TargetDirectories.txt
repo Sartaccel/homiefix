@@ -1,0 +1,2 @@
+/Users/berish/Downloads/homiefix/android/app/.cxx/Debug/6j4u6r6r/x86/CMakeFiles/edit_cache.dir
+/Users/berish/Downloads/homiefix/android/app/.cxx/Debug/6j4u6r6r/x86/CMakeFiles/rebuild_cache.dir
