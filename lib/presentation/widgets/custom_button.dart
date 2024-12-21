@@ -2,6 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:flutter_switch/flutter_switch.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:homiefix_application/presentation/constants/icons.dart';
 import 'package:homiefix_application/presentation/constants/static.constants.dart';
@@ -790,10 +791,16 @@ class Updatebutton extends StatelessWidget {
 
 
 
+
 class CustomTextFieldContainer extends StatelessWidget {
   final String hintText;
+  final TextEditingController? controller; // Add the controller parameter
 
-  const CustomTextFieldContainer({required this.hintText, super.key});
+  const CustomTextFieldContainer({
+    Key? key,
+    required this.hintText,
+    this.controller, // Make controller optional
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -810,6 +817,7 @@ class CustomTextFieldContainer extends StatelessWidget {
         border: Border.all(color: AppColors.borderfield),
       ),
       child: TextField(
+        controller: controller, // Use the controller passed to this widget
         textAlignVertical: TextAlignVertical.center,
         decoration: InputDecoration(
           contentPadding: const EdgeInsets.symmetric(horizontal: 10, vertical: 12),
@@ -826,6 +834,8 @@ class CustomTextFieldContainer extends StatelessWidget {
   }
 }
 
+
+
 class CustomContainer extends StatelessWidget {
   const CustomContainer({super.key});
 
@@ -833,10 +843,10 @@ class CustomContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     // Using MediaQuery to adjust the width dynamically
     final double screenWidth = MediaQuery.of(context).size.width;
-    final double containerWidth = screenWidth * 0.44; // Adjust width to 60% of screen width
+    final double containerWidth = screenWidth * 0.44; // Adjust width to 44% of screen width
 
     return Container(
-      width: containerWidth, 
+      width: containerWidth,
       height: 44,
       decoration: BoxDecoration(
         color: Colors.white,
@@ -847,13 +857,13 @@ class CustomContainer extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           SvgPicture.asset(
-            AppIcons.location2,
+            AppIcons.location2, // Assuming this is defined in your AppIcons constants
             width: 20,
             height: 20,
           ),
           const SizedBox(width: 8),
           Text(
-            Constants.currentlocation,
+            Constants.currentlocation, // Assuming this is defined in your Constants
             style: GoogleFonts.figtree(
               fontSize: 14,
               fontWeight: FontWeight.w600,
@@ -865,6 +875,7 @@ class CustomContainer extends StatelessWidget {
     );
   }
 }
+
 
 class ResponsiveSignInField extends StatelessWidget {
   final TextEditingController phoneNumberController;
@@ -886,14 +897,12 @@ class ResponsiveSignInField extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 2, vertical: 0),
       decoration: BoxDecoration(
         color: const Color(0xFFFCFCFC),
-        border: Border.all(color: const Color(0xffD9D9D9), width: 1),
+        border: Border.all(color: AppColors.borderfield),
         borderRadius: BorderRadius.circular(8),
       ),
       child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start, 
-        
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-        
           SizedBox(
             width: 30, // Fixed width to keep '+91' visible
             child: TextField(
@@ -904,7 +913,6 @@ class ResponsiveSignInField extends StatelessWidget {
                   fontSize: 14,
                   fontWeight: FontWeight.w400,
                 ),
-               
               ),
               enabled: false,
             ),
@@ -918,10 +926,9 @@ class ResponsiveSignInField extends StatelessWidget {
             endIndent: 5,
           ),
           const SizedBox(width: 10),
-          
           Flexible(
             child: TextField(
-              controller: phoneNumberController,
+              controller: phoneNumberController, // Added controller here
               keyboardType: TextInputType.phone,
               maxLength: 10,
               decoration: InputDecoration(
@@ -931,9 +938,8 @@ class ResponsiveSignInField extends StatelessWidget {
                   fontSize: 14,
                   fontWeight: FontWeight.w400,
                 ),
-                counterText: '', 
+                counterText: '', // Hide the counter text for maxLength
                 border: InputBorder.none,
-               
               ),
             ),
           ),
@@ -946,8 +952,13 @@ class ResponsiveSignInField extends StatelessWidget {
 
 class ResponsiveTextFieldContainer extends StatelessWidget {
   final String hintText;
+  final TextEditingController controller;
 
-  const ResponsiveTextFieldContainer({required this.hintText, super.key});
+  const ResponsiveTextFieldContainer({
+    required this.hintText,
+    required this.controller,
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -962,6 +973,7 @@ class ResponsiveTextFieldContainer extends StatelessWidget {
         border: Border.all(color: AppColors.borderfield),
       ),
       child: TextField(
+        controller: controller, // Added controller here
         textAlignVertical: TextAlignVertical.center,
         decoration: InputDecoration(
           contentPadding: const EdgeInsets.symmetric(horizontal: 10, vertical: 12),
@@ -971,9 +983,271 @@ class ResponsiveTextFieldContainer extends StatelessWidget {
             color: AppColors.subheadfield,
             fontSize: 14,
             fontWeight: FontWeight.w400,
-            
           ),
         ),
+      ),
+    );
+  }
+}
+
+
+
+
+class SignInButton1 extends StatelessWidget {
+  final VoidCallback onPressed;
+
+  const SignInButton1({Key? key, required this.onPressed}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+
+    // Adjust the width of the button dynamically
+    double buttonWidth = screenWidth * 0.9; // Set to 80% of the screen width
+
+    return SizedBox(
+      width: buttonWidth,
+      child: ElevatedButton(
+        onPressed: onPressed,
+        child: const Text(
+          'Save',
+          style: TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.w600,
+            fontSize: 14,
+          ),
+        ),
+        style: ElevatedButton.styleFrom(
+          padding: const EdgeInsets.symmetric(
+            vertical: 12.0, // Only vertical padding
+          ),
+          textStyle: const TextStyle(fontSize: 18.0),
+          backgroundColor: Color(0xff009980),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8.0),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class Updatebutton1 extends StatelessWidget {
+  final VoidCallback onPressed;
+
+  const Updatebutton1({Key? key, required this.onPressed}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+
+    return SizedBox(
+      width: screenWidth * 0.87, // Responsive width based on screen size
+      height: 44, // Fixed height
+      child: ElevatedButton(
+        onPressed: () => _showCustomDialog(context),
+        child: const Text(
+          Constants.save,
+          style: TextStyle(
+            fontFamily: AppFonts.font,
+            color: Colors.white,
+            fontWeight: FontWeight.w600,
+            fontSize: 14,
+          ),
+        ),
+        style: ElevatedButton.styleFrom(
+          padding: EdgeInsets.symmetric(vertical: 12.0),
+          textStyle: const TextStyle(fontSize: 18.0),
+          backgroundColor: Color(0xff009980),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8.0),
+          ),
+        ),
+      ),
+    );
+  }
+
+  void _showCustomDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return CustomDialogBox(
+          title: "Delete Changes?",
+          descriptions: 'Your changes won’t be saved. Do you want to\ndelete them anyway?',
+          deleteButtonText: 'Delete changes',
+          cancelButtonText: 'Go back',
+          onDeletePressed: () {
+            Navigator.of(context).pop(); 
+            onPressed();
+          },
+          onCancelPressed: () {
+            Navigator.of(context).pop();
+          }, onPressed: () {  },
+        );
+      },
+    );
+  }
+}
+
+
+
+class CustomContainer1 extends StatelessWidget {
+  final VoidCallback onTap;
+
+  const CustomContainer1({super.key, required this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+
+      child: Container(
+        width: MediaQuery.of(context).size.width * 0.9, // 80% of screen width
+        height: 55, // Fixed height
+        decoration: BoxDecoration(
+          color:AppColors.cardbackround,
+          borderRadius: BorderRadius.circular(8),
+        ),
+        child: Center(
+
+          child: Row(
+      children: [
+        SizedBox(width: 20,),
+        Text(
+          '+',
+          style: GoogleFonts.figtree(
+            fontSize: 30, // Adjust size as needed
+            color: AppColors.address,
+            fontWeight: FontWeight.w400
+           
+          ),
+        ),
+        SizedBox(width: 10),
+        Text(
+          Constants.Manageaddress,
+          style: GoogleFonts.figtree(
+            color: AppColors.address,
+            fontSize: 16,
+            fontWeight: FontWeight.w600
+          ),
+        ),
+      ]
+        ),
+      ),
+      )
+    );
+  }
+}
+
+
+class NotificationContainer extends StatelessWidget {
+  final VoidCallback onTap;
+
+  const NotificationContainer({super.key, required this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all(10),
+      width: MediaQuery.of(context).size.width * 0.9, 
+      height: 50, 
+      decoration: BoxDecoration(
+        color: AppColors.cardbackround,
+        borderRadius: BorderRadius.circular(8),
+      ),
+      child: Center(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+           
+            Text(
+              Constants.notifications, // Notification text
+              style: GoogleFonts.figtree(
+                color: AppColors.notifications,
+                fontSize: 14,
+                fontWeight: FontWeight.w400,
+              ),
+            ),
+            SizedBox(width: 1,),
+            AdvancedToggleSwitch(),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+
+
+
+
+
+class AdvancedToggleSwitch extends StatefulWidget {
+  @override
+  _AdvancedToggleSwitchState createState() => _AdvancedToggleSwitchState();
+}
+
+class _AdvancedToggleSwitchState extends State<AdvancedToggleSwitch> {
+  bool status = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return FlutterSwitch(
+      width: 50.0,
+      height: 25.0,
+      value: status,
+      borderRadius: 30.0,
+      padding: 2,
+      activeColor: Colors.white, // Color when the switch is on
+      inactiveColor: Colors.white, // Color when the switch is off
+      toggleColor: status ?AppColors.Verify : Colors.grey, // Toggle switch color
+      switchBorder: Border.all(
+        color: status ?AppColors.Verify : Colors.grey, // Border color for the switch
+        width: 1.0, // Border width
+      ),
+      toggleBorder: Border.all(
+        color: status ? Colors.green : Colors.grey, // Border color for the toggle
+        width: 1.0, // Border width
+      ),
+      onToggle: (val) {
+        setState(() {
+          status = val;
+        });
+        print('Switch is $status');
+      },
+    );
+  }
+}
+
+class FaqContainer extends StatelessWidget {
+  const FaqContainer({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all(10),
+      width: MediaQuery.of(context).size.width * 0.9,
+      height: 50,
+      decoration: BoxDecoration(
+        color: AppColors.cardbackround,
+        borderRadius: BorderRadius.circular(8), // Optional: to match other containers
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            Constants.faq, 
+            style: GoogleFonts.figtree(
+              color: AppColors.notifications,
+              fontSize: 14,
+              fontWeight: FontWeight.w400,
+            ),
+          ),
+          IconButton(
+            onPressed: (){}, 
+            icon: Icon(Icons.arrow_forward_ios_outlined,size: 12),
+          ),
+        ],
       ),
     );
   }

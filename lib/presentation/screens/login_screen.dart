@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/gestures.dart';
+
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:homiefix_application/presentation/constants/static.constants.dart';
 import 'package:homiefix_application/presentation/screens/map_screen.dart';
 import 'package:homiefix_application/presentation/screens/otp_entering.dart';
-import 'package:homiefix_application/presentation/widgets/animation.dart';
 import 'package:homiefix_application/presentation/widgets/custom_button.dart';
 
 class SignIn extends StatefulWidget {

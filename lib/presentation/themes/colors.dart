@@ -49,6 +49,8 @@ static const Color cardbackround =Color(0XFFFFFFFF);
 static const Color subhead=Color(0xFF333333);
 static const Color subheadfield =Color(0XFFB2B2B2);
 static const Color location1=Color(0XFF009980);
+static const Color address = Color(0XFF006D5B);
+static const Color notifications = Color(0XFF4D4D4D);
 
 
 

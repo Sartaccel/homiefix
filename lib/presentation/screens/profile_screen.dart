@@ -55,7 +55,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     ),
                   ],
                 ),
-                
                 Divider(
                   color: AppColors.devider,
                   thickness: 1,
@@ -127,7 +126,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           context,
                           MaterialPageRoute(
                             builder: (context) =>
-                                SignIn() // Redirect to OTP page
+                                SignIn() 
                           ),
                         );
                        

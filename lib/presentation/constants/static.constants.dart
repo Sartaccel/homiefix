@@ -73,6 +73,11 @@ class Constants {
       static const String nearby = 'Nearby Landmark';
         static const String district = 'District';
          static const String state = 'State';
+         static const String save = 'Save';
+         static const String Manageaddress = 'Add new address';
+         static const String notifications = 'Notifications';
+          static const String faq = 'FAQ';
+
 
      
     
